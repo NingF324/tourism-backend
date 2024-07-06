@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.emergency.mapper.EmergencyinfoMapper">
+    
+    <resultMap type="Emergencyinfo" id="EmergencyinfoResult">
+        <result property="id"    column="id"    />
+        <result property="priority"    column="priority"    />
+        <result property="validity"    column="validity"    />
+        <result property="content"    column="content"    />
+        <result property="status"    column="status"    />
+        <result property="scenicareaId"    column="scenicarea_id"    />
+    </resultMap>
+
+    <sql id="selectEmergencyinfoVo">
+        select id, priority, validity, content, status, scenicarea_id from emergencyinfo
+    </sql>
+
+    <select id="selectEmergencyinfoList" parameterType="Emergencyinfo" resultMap="EmergencyinfoResult">
+        <include refid="selectEmergencyinfoVo"/>
+        <where>  
+            <if test="priority != null "> and priority = #{priority}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="scenicareaId != null "> and scenicarea_id = #{scenicareaId}</if>
+        </where>
+    </select>
+    
+    <select id="selectEmergencyinfoById" parameterType="Long" resultMap="EmergencyinfoResult">
+        <include refid="selectEmergencyinfoVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertEmergencyinfo" parameterType="Emergencyinfo">
+        insert into emergencyinfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="priority != null">priority,</if>
+            <if test="validity != null">validity,</if>
+            <if test="content != null and content != ''">content,</if>
+            <if test="status != null">status,</if>
+            <if test="scenicareaId != null">scenicarea_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="priority != null">#{priority},</if>
+            <if test="validity != null">#{validity},</if>
+            <if test="content != null and content != ''">#{content},</if>
+            <if test="status != null">#{status},</if>
+            <if test="scenicareaId != null">#{scenicareaId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateEmergencyinfo" parameterType="Emergencyinfo">
+        update emergencyinfo
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="priority != null">priority = #{priority},</if>
+            <if test="validity != null">validity = #{validity},</if>
+            <if test="content != null and content != ''">content = #{content},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="scenicareaId != null">scenicarea_id = #{scenicareaId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteEmergencyinfoById" parameterType="Long">
+        delete from emergencyinfo where id = #{id}
+    </delete>
+
+    <delete id="deleteEmergencyinfoByIds" parameterType="String">
+        delete from emergencyinfo where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
