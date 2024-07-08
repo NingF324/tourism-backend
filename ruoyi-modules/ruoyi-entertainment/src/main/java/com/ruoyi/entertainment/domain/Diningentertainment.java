@@ -1,7 +1,5 @@
 package com.ruoyi.entertainment.domain;
 
-import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.core.annotation.Excel;
@@ -11,7 +9,7 @@ import com.ruoyi.common.core.web.domain.BaseEntity;
  * 餐饮娱乐信息对象 diningentertainment
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-08
  */
 public class Diningentertainment extends BaseEntity
 {
@@ -28,19 +26,21 @@ public class Diningentertainment extends BaseEntity
     @Excel(name = "名称")
     private String name;
 
-    /** 营业开始时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "营业开始时间", width = 30, dateFormat = "yyyy-MM-dd")
-    private Date openingTime;
+    /** 开店时间 */
+    @Excel(name = "开店时间")
+    private String openingTime;
 
     /** 地址 */
     @Excel(name = "地址")
     private String address;
 
-    /** 营业结束时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "营业结束时间", width = 30, dateFormat = "yyyy-MM-dd")
-    private Date closingTime;
+    /** 打烊时间 */
+    @Excel(name = "打烊时间")
+    private String closingTime;
+
+    /** 附图 */
+    @Excel(name = "附图")
+    private String picUrl;
 
     public void setId(Long id) 
     {
@@ -69,12 +69,12 @@ public class Diningentertainment extends BaseEntity
     {
         return name;
     }
-    public void setOpeningTime(Date openingTime) 
+    public void setOpeningTime(String openingTime) 
     {
         this.openingTime = openingTime;
     }
 
-    public Date getOpeningTime() 
+    public String getOpeningTime() 
     {
         return openingTime;
     }
@@ -87,14 +87,23 @@ public class Diningentertainment extends BaseEntity
     {
         return address;
     }
-    public void setClosingTime(Date closingTime) 
+    public void setClosingTime(String closingTime) 
     {
         this.closingTime = closingTime;
     }
 
-    public Date getClosingTime() 
+    public String getClosingTime() 
     {
         return closingTime;
+    }
+    public void setPicUrl(String picUrl) 
+    {
+        this.picUrl = picUrl;
+    }
+
+    public String getPicUrl() 
+    {
+        return picUrl;
     }
 
     @Override
@@ -106,6 +115,7 @@ public class Diningentertainment extends BaseEntity
             .append("openingTime", getOpeningTime())
             .append("address", getAddress())
             .append("closingTime", getClosingTime())
+            .append("picUrl", getPicUrl())
             .toString();
     }
 }

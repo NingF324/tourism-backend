@@ -26,7 +26,7 @@ import com.ruoyi.common.core.web.page.TableDataInfo;
  * 餐饮娱乐信息Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-08
  */
 @RestController
 @RequestMapping("/diningentertainment")

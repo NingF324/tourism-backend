@@ -22,8 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectPerformancegroupsVo"/>
         <where>  
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
-            <if test="startTime != null "> and start_time = #{startTime}</if>
-            <if test="venue != null  and venue != ''"> and venue = #{venue}</if>
+            <if test="venue != null  and venue != ''"> and venue like concat('%', #{venue}, '%')</if>
         </where>
     </select>
     

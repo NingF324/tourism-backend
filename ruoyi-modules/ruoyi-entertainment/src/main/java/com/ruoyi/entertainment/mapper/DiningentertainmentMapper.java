@@ -7,7 +7,7 @@ import com.ruoyi.entertainment.domain.Diningentertainment;
  * 餐饮娱乐信息Mapper接口
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-08
  */
 public interface DiningentertainmentMapper 
 {

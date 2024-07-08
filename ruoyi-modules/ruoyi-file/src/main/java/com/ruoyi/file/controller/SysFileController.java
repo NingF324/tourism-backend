@@ -1,5 +1,6 @@
 package com.ruoyi.file.controller;
 
+import com.ruoyi.file.service.OssSysFileServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,7 @@ public class SysFileController
 {
     private static final Logger log = LoggerFactory.getLogger(SysFileController.class);
 
-    @Autowired
-    private ISysFileService sysFileService;
+    private final OssSysFileServiceImpl sysFileService = new OssSysFileServiceImpl();
 
     /**
      * 文件上传请求
