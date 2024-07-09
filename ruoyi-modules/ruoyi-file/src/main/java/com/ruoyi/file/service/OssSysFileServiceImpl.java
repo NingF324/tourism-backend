@@ -18,25 +18,25 @@ import com.ruoyi.file.utils.FileUploadUtils;
 @Primary
 @Service
 public class OssSysFileServiceImpl implements ISysFileService{
-//    /**
-//     * oss公钥
-//     */
-//    public String accessKey="LTAI5tLT2wiX6Kpfw6w2q7VR";
-//
-//    /**
-//     * oss私钥
-//     */
-//    public String secretKey="mqQpE2E2WtfmiR42OsyEqxOLw855Im";
-//
-//    /**
-//     * oss存储桶域名地址
-//     */
-//    public String endpoint="oss-cn-beijing.aliyuncs.com";
-//
-//    /**
-//     * oss存储桶名称
-//     */
-//    public String bucketName="tourism-oss";
+    /**
+     * oss公钥
+     */
+    public String accessKey;
+
+    /**
+     * oss私钥
+     */
+    public String secretKey;
+
+    /**
+     * oss存储桶域名地址
+     */
+    public String endpoint;
+
+    /**
+     * oss存储桶名称
+     */
+    public String bucketName;
 
     /**
      * OSS文件上传接口
