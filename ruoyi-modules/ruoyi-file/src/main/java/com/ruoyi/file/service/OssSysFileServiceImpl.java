@@ -31,12 +31,12 @@ public class OssSysFileServiceImpl implements ISysFileService{
     /**
      * oss存储桶域名地址
      */
-    public String endpoint;
+    public String endpoint="oss-cn-beijing.aliyuncs.com";
 
     /**
      * oss存储桶名称
      */
-    public String bucketName;
+    public String bucketName="tourism-oss";
 
     /**
      * OSS文件上传接口
