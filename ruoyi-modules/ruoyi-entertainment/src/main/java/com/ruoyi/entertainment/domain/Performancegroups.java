@@ -45,6 +45,10 @@ public class Performancegroups extends BaseEntity
     @Excel(name = "票价")
     private BigDecimal price;
 
+    /** 图片 */
+    @Excel(name = "图片")
+    private String picUrl;
+
     public void setId(Long id) 
     {
         this.id = id;
@@ -108,7 +112,15 @@ public class Performancegroups extends BaseEntity
     {
         return price;
     }
+    public void setPicUrl(String picUrl)
+    {
+        this.picUrl = picUrl;
+    }
 
+    public String getPicUrl()
+    {
+        return picUrl;
+    }
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -119,6 +131,7 @@ public class Performancegroups extends BaseEntity
             .append("venue", getVenue())
             .append("capacity", getCapacity())
             .append("price", getPrice())
+            .append("picUrl", getPicUrl())
             .toString();
     }
 }

@@ -12,10 +12,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="venue"    column="venue"    />
         <result property="capacity"    column="capacity"    />
         <result property="price"    column="price"    />
+        <result property="picUrl"    column="pic_url"    />
     </resultMap>
 
     <sql id="selectPerformancegroupsVo">
-        select id, name, start_time, duration, venue, capacity, price from performancegroups
+        select id, name, start_time, duration, venue, capacity, price, pic_url from performancegroups
     </sql>
 
     <select id="selectPerformancegroupsList" parameterType="Performancegroups" resultMap="PerformancegroupsResult">
@@ -31,25 +32,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
 
-    <insert id="insertPerformancegroups" parameterType="Performancegroups">
+    <insert id="insertPerformancegroups" parameterType="Performancegroups" useGeneratedKeys="true" keyProperty="id">
         insert into performancegroups
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">id,</if>
             <if test="name != null and name != ''">name,</if>
             <if test="startTime != null">start_time,</if>
             <if test="duration != null">duration,</if>
             <if test="venue != null and venue != ''">venue,</if>
             <if test="capacity != null">capacity,</if>
             <if test="price != null">price,</if>
+            <if test="picUrl != null">pic_url,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">#{id},</if>
             <if test="name != null and name != ''">#{name},</if>
             <if test="startTime != null">#{startTime},</if>
             <if test="duration != null">#{duration},</if>
             <if test="venue != null and venue != ''">#{venue},</if>
             <if test="capacity != null">#{capacity},</if>
             <if test="price != null">#{price},</if>
+            <if test="picUrl != null">#{picUrl},</if>
          </trim>
     </insert>
 
@@ -62,6 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="venue != null and venue != ''">venue = #{venue},</if>
             <if test="capacity != null">capacity = #{capacity},</if>
             <if test="price != null">price = #{price},</if>
+            <if test="picUrl != null">pic_url = #{picUrl},</if>
         </trim>
         where id = #{id}
     </update>

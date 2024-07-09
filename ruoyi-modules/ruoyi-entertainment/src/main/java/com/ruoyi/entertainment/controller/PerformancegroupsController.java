@@ -1,7 +1,6 @@
 package com.ruoyi.entertainment.controller;
 
 import java.util.List;
-import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +25,7 @@ import com.ruoyi.common.core.web.page.TableDataInfo;
  * 演出团体信息Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-08
  */
 @RestController
 @RequestMapping("/performancegroups")

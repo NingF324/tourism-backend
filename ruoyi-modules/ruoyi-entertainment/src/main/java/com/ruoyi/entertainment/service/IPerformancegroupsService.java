@@ -7,7 +7,7 @@ import com.ruoyi.entertainment.domain.Performancegroups;
  * 演出团体信息Service接口
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-08
  */
 public interface IPerformancegroupsService 
 {
