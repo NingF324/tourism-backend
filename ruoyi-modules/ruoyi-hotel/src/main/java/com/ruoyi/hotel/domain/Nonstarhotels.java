@@ -1,39 +1,42 @@
 package com.ruoyi.hotel.domain;
 
-import java.math.BigDecimal;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
- * 非星级酒店管理对象 nonstarhotels
+ * 非星级酒店对象 nonstarhotels
  * 
- * @author ningf
- * @date 2024-07-06
+ * @author ruoyi
+ * @date 2024-07-11
  */
 public class Nonstarhotels extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** 非星级酒店id */
+    /** 非星级酒店ID */
     private Long id;
 
-    /** 酒店名称 */
-    @Excel(name = "酒店名称")
+    /** 非星级酒店名 */
+    @Excel(name = "非星级酒店名")
     private String name;
 
-    /** 最低价 */
-    @Excel(name = "最低价")
-    private BigDecimal minPrice;
+    /** 最低价格 */
+    @Excel(name = "最低价格")
+    private Long minPrice;
 
-    /** 总剩余量 */
-    @Excel(name = "总剩余量")
+    /** 总余量 */
+    @Excel(name = "总余量")
     private Long totalQuantity;
 
     /** 地址 */
     @Excel(name = "地址")
     private String address;
+
+    /** 图片 */
+    @Excel(name = "图片")
+    private String imageUrl;
 
     public void setId(Long id) 
     {
@@ -53,12 +56,12 @@ public class Nonstarhotels extends BaseEntity
     {
         return name;
     }
-    public void setMinPrice(BigDecimal minPrice) 
+    public void setMinPrice(Long minPrice) 
     {
         this.minPrice = minPrice;
     }
 
-    public BigDecimal getMinPrice() 
+    public Long getMinPrice() 
     {
         return minPrice;
     }
@@ -80,6 +83,15 @@ public class Nonstarhotels extends BaseEntity
     {
         return address;
     }
+    public void setImageUrl(String imageUrl) 
+    {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() 
+    {
+        return imageUrl;
+    }
 
     @Override
     public String toString() {
@@ -89,6 +101,7 @@ public class Nonstarhotels extends BaseEntity
             .append("minPrice", getMinPrice())
             .append("totalQuantity", getTotalQuantity())
             .append("address", getAddress())
+            .append("imageUrl", getImageUrl())
             .toString();
     }
 }

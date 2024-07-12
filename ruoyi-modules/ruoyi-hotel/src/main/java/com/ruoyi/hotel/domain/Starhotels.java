@@ -6,37 +6,41 @@ import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
- * 星级酒店信息对象 starhotels
+ * 星级酒店对象 starhotels
  * 
- * @author ningf
+ * @author ruoyi
  * @date 2024-07-06
  */
 public class Starhotels extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** 星级酒店id */
+    /** 星级酒店ID */
     private Long id;
 
-    /** 酒店名称 */
-    @Excel(name = "酒店名称")
+    /** 星级酒店名 */
+    @Excel(name = "星级酒店名")
     private String name;
 
-    /** 酒店星级 */
-    @Excel(name = "酒店星级")
+    /** 星级 */
+    @Excel(name = "星级")
     private Long starLevel;
 
     /** 最低价 */
     @Excel(name = "最低价")
     private Long minPrice;
 
-    /** 剩余总量 */
-    @Excel(name = "剩余总量")
+    /** 总余量 */
+    @Excel(name = "总余量")
     private Long totalQuantity;
 
     /** 地址 */
     @Excel(name = "地址")
     private String address;
+
+    /** 图片 */
+    @Excel(name = "图片")
+    private String imageUrl;
 
     public void setId(Long id) 
     {
@@ -92,6 +96,15 @@ public class Starhotels extends BaseEntity
     {
         return address;
     }
+    public void setImageUrl(String imageUrl) 
+    {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() 
+    {
+        return imageUrl;
+    }
 
     @Override
     public String toString() {
@@ -102,6 +115,7 @@ public class Starhotels extends BaseEntity
             .append("minPrice", getMinPrice())
             .append("totalQuantity", getTotalQuantity())
             .append("address", getAddress())
+            .append("imageUrl", getImageUrl())
             .toString();
     }
 }

@@ -23,9 +23,9 @@ import com.ruoyi.common.core.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.web.page.TableDataInfo;
 
 /**
- * 星级酒店信息Controller
+ * 星级酒店Controller
  * 
- * @author ningf
+ * @author ruoyi
  * @date 2024-07-06
  */
 @RestController
@@ -36,7 +36,7 @@ public class StarhotelsController extends BaseController
     private IStarhotelsService starhotelsService;
 
     /**
-     * 查询星级酒店信息列表
+     * 查询星级酒店列表
      */
     @RequiresPermissions("hotel:starhotels:list")
     @GetMapping("/list")
@@ -47,59 +47,14 @@ public class StarhotelsController extends BaseController
         return getDataTable(list);
     }
 
-    /**
-     * 导出星级酒店信息列表
-     */
-    @RequiresPermissions("hotel:starhotels:export")
-    @Log(title = "星级酒店信息", businessType = BusinessType.EXPORT)
-    @PostMapping("/export")
-    public void export(HttpServletResponse response, Starhotels starhotels)
-    {
-        List<Starhotels> list = starhotelsService.selectStarhotelsList(starhotels);
-        ExcelUtil<Starhotels> util = new ExcelUtil<Starhotels>(Starhotels.class);
-        util.exportExcel(response, list, "星级酒店信息数据");
-    }
 
     /**
-     * 获取星级酒店信息详细信息
+     * 获取星级酒店
      */
     @RequiresPermissions("hotel:starhotels:query")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") Long id)
     {
         return success(starhotelsService.selectStarhotelsById(id));
-    }
-
-    /**
-     * 新增星级酒店信息
-     */
-    @RequiresPermissions("hotel:starhotels:add")
-    @Log(title = "星级酒店信息", businessType = BusinessType.INSERT)
-    @PostMapping
-    public AjaxResult add(@RequestBody Starhotels starhotels)
-    {
-        return toAjax(starhotelsService.insertStarhotels(starhotels));
-    }
-
-    /**
-     * 修改星级酒店信息
-     */
-    @RequiresPermissions("hotel:starhotels:edit")
-    @Log(title = "星级酒店信息", businessType = BusinessType.UPDATE)
-    @PutMapping
-    public AjaxResult edit(@RequestBody Starhotels starhotels)
-    {
-        return toAjax(starhotelsService.updateStarhotels(starhotels));
-    }
-
-    /**
-     * 删除星级酒店信息
-     */
-    @RequiresPermissions("hotel:starhotels:remove")
-    @Log(title = "星级酒店信息", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{ids}")
-    public AjaxResult remove(@PathVariable Long[] ids)
-    {
-        return toAjax(starhotelsService.deleteStarhotelsByIds(ids));
     }
 }

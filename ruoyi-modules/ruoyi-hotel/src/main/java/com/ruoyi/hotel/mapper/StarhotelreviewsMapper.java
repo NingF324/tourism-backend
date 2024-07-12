@@ -1,61 +1,16 @@
 package com.ruoyi.hotel.mapper;
 
+import com.ruoyi.hotel.domain.StarhotelReviews;
+import com.ruoyi.hotel.domain.StarhotelRooms;
+
 import java.util.List;
-import com.ruoyi.hotel.domain.Starhotelreviews;
 
-/**
- * 星级酒店评价管理Mapper接口
- * 
- * @author ningf
- * @date 2024-07-06
- */
-public interface StarhotelreviewsMapper 
-{
+public interface StarhotelReviewsMapper {
     /**
-     * 查询星级酒店评价管理
-     * 
-     * @param id 星级酒店评价管理主键
-     * @return 星级酒店评价管理
+     * 查询星级酒店评论列表
+     *
+     * @param id 星级酒店ID
+     * @return 指定星级酒店房间集合
      */
-    public Starhotelreviews selectStarhotelreviewsById(Long id);
-
-    /**
-     * 查询星级酒店评价管理列表
-     * 
-     * @param starhotelreviews 星级酒店评价管理
-     * @return 星级酒店评价管理集合
-     */
-    public List<Starhotelreviews> selectStarhotelreviewsList(Starhotelreviews starhotelreviews);
-
-    /**
-     * 新增星级酒店评价管理
-     * 
-     * @param starhotelreviews 星级酒店评价管理
-     * @return 结果
-     */
-    public int insertStarhotelreviews(Starhotelreviews starhotelreviews);
-
-    /**
-     * 修改星级酒店评价管理
-     * 
-     * @param starhotelreviews 星级酒店评价管理
-     * @return 结果
-     */
-    public int updateStarhotelreviews(Starhotelreviews starhotelreviews);
-
-    /**
-     * 删除星级酒店评价管理
-     * 
-     * @param id 星级酒店评价管理主键
-     * @return 结果
-     */
-    public int deleteStarhotelreviewsById(Long id);
-
-    /**
-     * 批量删除星级酒店评价管理
-     * 
-     * @param ids 需要删除的数据主键集合
-     * @return 结果
-     */
-    public int deleteStarhotelreviewsByIds(Long[] ids);
+    public List<StarhotelReviews> selectStarhotelReviewsList(Long id);
 }

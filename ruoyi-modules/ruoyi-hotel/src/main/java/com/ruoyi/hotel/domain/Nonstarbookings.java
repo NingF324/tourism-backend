@@ -1,107 +1,98 @@
 package com.ruoyi.hotel.domain;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
-/**
- * 非星级酒店预定信息对象 nonstarbookings
- * 
- * @author ningf
- * @date 2024-07-06
- */
-public class Nonstarbookings extends BaseEntity
-{
-    private static final long serialVersionUID = 1L;
+import java.time.LocalDateTime;
 
-    /** 非星级酒店预定id */
+public class NonstarBookings extends BaseEntity {
+    /** 预订信息ID */
     private Long id;
-
-    /** 酒店id */
-    @Excel(name = "酒店id")
-    private Long hotelId;
-
-    /** 房型id */
-    @Excel(name = "房型id")
-    private Long roomTypeId;
-
-    /** 用户id */
-    @Excel(name = "用户id")
-    private Long guestName;
-
+    /** 星级酒店ID */
+    private Long hotel_id;
+    /** 星级酒店房间ID */
+    private Long room_type_id;
+    /** 游客ID */
+    private Long guest_id;
     /** 联系电话 */
-    @Excel(name = "联系电话")
-    private String contactNumber;
+    private String contact_number ;
+    /** 是否已录入 */
+    private int recorded;
+    /** 入住时间 */
+    private LocalDateTime check_in_time;
+    /** 离开时间 */
+    private LocalDateTime check_out_time;
+    /** 入住人姓名 */
+    private String guest_name;
 
-    /** 是否已确认 */
-    @Excel(name = "是否已确认")
-    private Integer recorded;
+    public Long getId() {
+        return id;
+    }
 
-    public void setId(Long id) 
-    {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getId() 
-    {
-        return id;
-    }
-    public void setHotelId(Long hotelId) 
-    {
-        this.hotelId = hotelId;
+    public Long getHotel_id() {
+        return hotel_id;
     }
 
-    public Long getHotelId() 
-    {
-        return hotelId;
-    }
-    public void setRoomTypeId(Long roomTypeId) 
-    {
-        this.roomTypeId = roomTypeId;
+    public void setHotel_id(Long hotel_id) {
+        this.hotel_id = hotel_id;
     }
 
-    public Long getRoomTypeId() 
-    {
-        return roomTypeId;
-    }
-    public void setGuestName(Long guestName) 
-    {
-        this.guestName = guestName;
+    public Long getRoom_type_id() {
+        return room_type_id;
     }
 
-    public Long getGuestName() 
-    {
-        return guestName;
-    }
-    public void setContactNumber(String contactNumber) 
-    {
-        this.contactNumber = contactNumber;
+    public void setRoom_type_id(Long room_type_id) {
+        this.room_type_id = room_type_id;
     }
 
-    public String getContactNumber() 
-    {
-        return contactNumber;
-    }
-    public void setRecorded(Integer recorded) 
-    {
-        this.recorded = recorded;
+    public Long getGuest_id() {
+        return guest_id;
     }
 
-    public Integer getRecorded() 
-    {
+    public void setGuest_id(Long guest_id) {
+        this.guest_id = guest_id;
+    }
+
+    public String getContact_number() {
+        return contact_number;
+    }
+
+    public void setContact_number(String contact_number) {
+        this.contact_number = contact_number;
+    }
+
+    public int getRecorded() {
         return recorded;
     }
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("id", getId())
-            .append("hotelId", getHotelId())
-            .append("roomTypeId", getRoomTypeId())
-            .append("guestName", getGuestName())
-            .append("contactNumber", getContactNumber())
-            .append("recorded", getRecorded())
-            .toString();
+    public void setRecorded(int recorded) {
+        this.recorded = recorded;
+    }
+
+    public LocalDateTime getCheck_in_time() {
+        return check_in_time;
+    }
+
+    public void setCheck_in_time(LocalDateTime check_in_time) {
+        this.check_in_time = check_in_time;
+    }
+
+    public LocalDateTime getCheck_out_time() {
+        return check_out_time;
+    }
+
+    public void setCheck_out_time(LocalDateTime check_out_time) {
+        this.check_out_time = check_out_time;
+    }
+
+    public String getGuest_name() {
+        return guest_name;
+    }
+
+    public void setGuest_name(String guest_name) {
+        this.guest_name = guest_name;
     }
 }

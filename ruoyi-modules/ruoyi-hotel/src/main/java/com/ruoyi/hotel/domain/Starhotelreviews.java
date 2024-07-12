@@ -1,93 +1,79 @@
 package com.ruoyi.hotel.domain;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
-/**
- * 星级酒店评价管理对象 starhotelreviews
- * 
- * @author ningf
- * @date 2024-07-06
- */
-public class Starhotelreviews extends BaseEntity
-{
-    private static final long serialVersionUID = 1L;
+import java.time.LocalDateTime;
 
-    /** 星级酒店评价id */
+public class StarhotelReviews extends BaseEntity {
+    /** 评论信息ID */
     private Long id;
+    /** 酒店信息ID */
+    private Long hotel_id;
 
-    /** 酒店id */
-    @Excel(name = "酒店id")
-    private Long hotelId;
-
-    /** 内容 */
-    @Excel(name = "内容")
+    /** 评论内容 */
     private String content;
-
-    /** 用户id */
-    @Excel(name = "用户id")
-    private Long guestId;
-
+    /** 游客ID */
+    private Long guest_id;
     /** 评分 */
-    @Excel(name = "评分")
     private Long rating;
+    /** 房间信息ID */
+    private Long room_type_id;
+    /** 评论发布日期 */
+    private LocalDateTime review_date;
 
-    public void setId(Long id) 
-    {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getId() 
-    {
-        return id;
-    }
-    public void setHotelId(Long hotelId) 
-    {
-        this.hotelId = hotelId;
+    public Long getHotel_id() {
+        return hotel_id;
     }
 
-    public Long getHotelId() 
-    {
-        return hotelId;
+    public void setHotel_id(Long hotel_id) {
+        this.hotel_id = hotel_id;
     }
-    public void setContent(String content) 
-    {
+
+    public Long getRoom_type_id() {
+        return room_type_id;
+    }
+
+    public void setRoom_type_id(Long room_type_id) {
+        this.room_type_id = room_type_id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
         this.content = content;
     }
 
-    public String getContent() 
-    {
-        return content;
-    }
-    public void setGuestId(Long guestId) 
-    {
-        this.guestId = guestId;
+    public Long getGuest_id() {
+        return guest_id;
     }
 
-    public Long getGuestId() 
-    {
-        return guestId;
-    }
-    public void setRating(Long rating) 
-    {
-        this.rating = rating;
+    public void setGuest_id(Long guest_id) {
+        this.guest_id = guest_id;
     }
 
-    public Long getRating() 
-    {
+    public Long getRating() {
         return rating;
     }
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("id", getId())
-            .append("hotelId", getHotelId())
-            .append("content", getContent())
-            .append("guestId", getGuestId())
-            .append("rating", getRating())
-            .toString();
+    public void setRating(Long rating) {
+        this.rating = rating;
+    }
+
+    public LocalDateTime getReview_date() {
+        return review_date;
+    }
+
+    public void setReview_date(LocalDateTime review_date) {
+        this.review_date = review_date;
     }
 }
