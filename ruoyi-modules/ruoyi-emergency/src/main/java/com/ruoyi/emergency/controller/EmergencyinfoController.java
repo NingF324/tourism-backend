@@ -38,7 +38,6 @@ public class EmergencyinfoController extends BaseController
     /**
      * 查询应急信息列表
      */
-    @RequiresPermissions("emergency:emergencyinfo:list")
     @GetMapping("/list")
     public TableDataInfo list(Emergencyinfo emergencyinfo)
     {

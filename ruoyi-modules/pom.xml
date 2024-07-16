@@ -19,6 +19,7 @@
         <module>ruoyi-hotel</module>
         <module>ruoyi-scenic</module>
         <module>ruoyi-userSys</module>
+        <module>ruoyi-guestHotel</module>
     </modules>
 
     <artifactId>ruoyi-modules</artifactId>
