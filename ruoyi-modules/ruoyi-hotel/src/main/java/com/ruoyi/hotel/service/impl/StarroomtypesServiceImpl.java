@@ -8,10 +8,10 @@ import com.ruoyi.hotel.domain.Starroomtypes;
 import com.ruoyi.hotel.service.IStarroomtypesService;
 
 /**
- * 星级酒店房型管理Service业务层处理
+ * 星级酒店房型Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-12
  */
 @Service
 public class StarroomtypesServiceImpl implements IStarroomtypesService 
@@ -20,10 +20,10 @@ public class StarroomtypesServiceImpl implements IStarroomtypesService
     private StarroomtypesMapper starroomtypesMapper;
 
     /**
-     * 查询星级酒店房型管理
+     * 查询星级酒店房型
      * 
-     * @param id 星级酒店房型管理主键
-     * @return 星级酒店房型管理
+     * @param id 星级酒店房型主键
+     * @return 星级酒店房型
      */
     @Override
     public Starroomtypes selectStarroomtypesById(Long id)
@@ -32,10 +32,10 @@ public class StarroomtypesServiceImpl implements IStarroomtypesService
     }
 
     /**
-     * 查询星级酒店房型管理列表
+     * 查询星级酒店房型列表
      * 
-     * @param starroomtypes 星级酒店房型管理
-     * @return 星级酒店房型管理
+     * @param starroomtypes 星级酒店房型
+     * @return 星级酒店房型
      */
     @Override
     public List<Starroomtypes> selectStarroomtypesList(Starroomtypes starroomtypes)
@@ -44,9 +44,9 @@ public class StarroomtypesServiceImpl implements IStarroomtypesService
     }
 
     /**
-     * 新增星级酒店房型管理
+     * 新增星级酒店房型
      * 
-     * @param starroomtypes 星级酒店房型管理
+     * @param starroomtypes 星级酒店房型
      * @return 结果
      */
     @Override
@@ -56,9 +56,9 @@ public class StarroomtypesServiceImpl implements IStarroomtypesService
     }
 
     /**
-     * 修改星级酒店房型管理
+     * 修改星级酒店房型
      * 
-     * @param starroomtypes 星级酒店房型管理
+     * @param starroomtypes 星级酒店房型
      * @return 结果
      */
     @Override
@@ -68,9 +68,9 @@ public class StarroomtypesServiceImpl implements IStarroomtypesService
     }
 
     /**
-     * 批量删除星级酒店房型管理
+     * 批量删除星级酒店房型
      * 
-     * @param ids 需要删除的星级酒店房型管理主键
+     * @param ids 需要删除的星级酒店房型主键
      * @return 结果
      */
     @Override
@@ -80,9 +80,9 @@ public class StarroomtypesServiceImpl implements IStarroomtypesService
     }
 
     /**
-     * 删除星级酒店房型管理信息
+     * 删除星级酒店房型信息
      * 
-     * @param id 星级酒店房型管理主键
+     * @param id 星级酒店房型主键
      * @return 结果
      */
     @Override

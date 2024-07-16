@@ -8,10 +8,10 @@ import com.ruoyi.hotel.domain.Nonstarroomtypes;
 import com.ruoyi.hotel.service.INonstarroomtypesService;
 
 /**
- * 非星级房型Service业务层处理
+ * 非星级酒店房型Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
 @Service
 public class NonstarroomtypesServiceImpl implements INonstarroomtypesService 
@@ -20,10 +20,10 @@ public class NonstarroomtypesServiceImpl implements INonstarroomtypesService
     private NonstarroomtypesMapper nonstarroomtypesMapper;
 
     /**
-     * 查询非星级房型
+     * 查询非星级酒店房型
      * 
-     * @param id 非星级房型主键
-     * @return 非星级房型
+     * @param id 非星级酒店房型主键
+     * @return 非星级酒店房型
      */
     @Override
     public Nonstarroomtypes selectNonstarroomtypesById(Long id)
@@ -32,10 +32,10 @@ public class NonstarroomtypesServiceImpl implements INonstarroomtypesService
     }
 
     /**
-     * 查询非星级房型列表
+     * 查询非星级酒店房型列表
      * 
-     * @param nonstarroomtypes 非星级房型
-     * @return 非星级房型
+     * @param nonstarroomtypes 非星级酒店房型
+     * @return 非星级酒店房型
      */
     @Override
     public List<Nonstarroomtypes> selectNonstarroomtypesList(Nonstarroomtypes nonstarroomtypes)
@@ -44,9 +44,9 @@ public class NonstarroomtypesServiceImpl implements INonstarroomtypesService
     }
 
     /**
-     * 新增非星级房型
+     * 新增非星级酒店房型
      * 
-     * @param nonstarroomtypes 非星级房型
+     * @param nonstarroomtypes 非星级酒店房型
      * @return 结果
      */
     @Override
@@ -56,9 +56,9 @@ public class NonstarroomtypesServiceImpl implements INonstarroomtypesService
     }
 
     /**
-     * 修改非星级房型
+     * 修改非星级酒店房型
      * 
-     * @param nonstarroomtypes 非星级房型
+     * @param nonstarroomtypes 非星级酒店房型
      * @return 结果
      */
     @Override
@@ -68,9 +68,9 @@ public class NonstarroomtypesServiceImpl implements INonstarroomtypesService
     }
 
     /**
-     * 批量删除非星级房型
+     * 批量删除非星级酒店房型
      * 
-     * @param ids 需要删除的非星级房型主键
+     * @param ids 需要删除的非星级酒店房型主键
      * @return 结果
      */
     @Override
@@ -80,9 +80,9 @@ public class NonstarroomtypesServiceImpl implements INonstarroomtypesService
     }
 
     /**
-     * 删除非星级房型信息
+     * 删除非星级酒店房型信息
      * 
-     * @param id 非星级房型主键
+     * @param id 非星级酒店房型主键
      * @return 结果
      */
     @Override

@@ -18,6 +18,7 @@
         <module>ruoyi-entertainment</module>
         <module>ruoyi-hotel</module>
         <module>ruoyi-scenic</module>
+        <module>ruoyi-userSys</module>
     </modules>
 
     <artifactId>ruoyi-modules</artifactId>

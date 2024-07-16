@@ -23,10 +23,10 @@ import com.ruoyi.common.core.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.web.page.TableDataInfo;
 
 /**
- * 星级酒店评价管理Controller
+ * 星级酒店评价Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 @RestController
 @RequestMapping("/starhotelreviews")
@@ -36,9 +36,8 @@ public class StarhotelreviewsController extends BaseController
     private IStarhotelreviewsService starhotelreviewsService;
 
     /**
-     * 查询星级酒店评价管理列表
+     * 查询星级酒店评价列表
      */
-    @RequiresPermissions("hotel:starhotelreviews:list")
     @GetMapping("/list")
     public TableDataInfo list(Starhotelreviews starhotelreviews)
     {
@@ -48,22 +47,21 @@ public class StarhotelreviewsController extends BaseController
     }
 
     /**
-     * 导出星级酒店评价管理列表
+     * 导出星级酒店评价列表
      */
-    @RequiresPermissions("hotel:starhotelreviews:export")
-    @Log(title = "星级酒店评价管理", businessType = BusinessType.EXPORT)
+    @Log(title = "星级酒店评价", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Starhotelreviews starhotelreviews)
     {
         List<Starhotelreviews> list = starhotelreviewsService.selectStarhotelreviewsList(starhotelreviews);
         ExcelUtil<Starhotelreviews> util = new ExcelUtil<Starhotelreviews>(Starhotelreviews.class);
-        util.exportExcel(response, list, "星级酒店评价管理数据");
+        util.exportExcel(response, list, "星级酒店评价数据");
     }
 
     /**
-     * 获取星级酒店评价管理详细信息
+     * 获取星级酒店评价详细信息
      */
-    @RequiresPermissions("hotel:starhotelreviews:query")
+//    @RequiresPermissions("hotel:starhotelreviews:query")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") Long id)
     {
@@ -71,10 +69,10 @@ public class StarhotelreviewsController extends BaseController
     }
 
     /**
-     * 新增星级酒店评价管理
+     * 新增星级酒店评价
      */
-    @RequiresPermissions("hotel:starhotelreviews:add")
-    @Log(title = "星级酒店评价管理", businessType = BusinessType.INSERT)
+//    @RequiresPermissions("hotel:starhotelreviews:add")
+    @Log(title = "星级酒店评价", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Starhotelreviews starhotelreviews)
     {
@@ -82,10 +80,10 @@ public class StarhotelreviewsController extends BaseController
     }
 
     /**
-     * 修改星级酒店评价管理
+     * 修改星级酒店评价
      */
-    @RequiresPermissions("hotel:starhotelreviews:edit")
-    @Log(title = "星级酒店评价管理", businessType = BusinessType.UPDATE)
+//    @RequiresPermissions("hotel:starhotelreviews:edit")
+    @Log(title = "星级酒店评价", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Starhotelreviews starhotelreviews)
     {
@@ -93,10 +91,10 @@ public class StarhotelreviewsController extends BaseController
     }
 
     /**
-     * 删除星级酒店评价管理
+     * 删除星级酒店评价
      */
-    @RequiresPermissions("hotel:starhotelreviews:remove")
-    @Log(title = "星级酒店评价管理", businessType = BusinessType.DELETE)
+//    @RequiresPermissions("hotel:starhotelreviews:remove")
+    @Log(title = "星级酒店评价", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {

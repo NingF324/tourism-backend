@@ -7,7 +7,7 @@ import com.ruoyi.entertainment.domain.Reviews;
  * 餐饮娱乐评价Mapper接口
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 public interface ReviewsMapper 
 {

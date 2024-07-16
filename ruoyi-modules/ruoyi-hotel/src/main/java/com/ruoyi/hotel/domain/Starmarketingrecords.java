@@ -6,10 +6,10 @@ import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
- * 星级酒店营销管理对象 starmarketingrecords
+ * 酒店营销记录对象 starmarketingrecords
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-10
  */
 public class Starmarketingrecords extends BaseEntity
 {

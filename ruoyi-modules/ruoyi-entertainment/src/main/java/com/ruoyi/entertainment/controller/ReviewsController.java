@@ -26,7 +26,7 @@ import com.ruoyi.common.core.web.page.TableDataInfo;
  * 餐饮娱乐评价Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 @RestController
 @RequestMapping("/reviews")
@@ -38,7 +38,6 @@ public class ReviewsController extends BaseController
     /**
      * 查询餐饮娱乐评价列表
      */
-    @RequiresPermissions("entertainment:reviews:list")
     @GetMapping("/list")
     public TableDataInfo list(Reviews reviews)
     {
@@ -50,7 +49,6 @@ public class ReviewsController extends BaseController
     /**
      * 导出餐饮娱乐评价列表
      */
-    @RequiresPermissions("entertainment:reviews:export")
     @Log(title = "餐饮娱乐评价", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Reviews reviews)
@@ -63,7 +61,6 @@ public class ReviewsController extends BaseController
     /**
      * 获取餐饮娱乐评价详细信息
      */
-    @RequiresPermissions("entertainment:reviews:query")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") Long id)
     {
@@ -73,7 +70,6 @@ public class ReviewsController extends BaseController
     /**
      * 新增餐饮娱乐评价
      */
-    @RequiresPermissions("entertainment:reviews:add")
     @Log(title = "餐饮娱乐评价", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Reviews reviews)
@@ -84,7 +80,6 @@ public class ReviewsController extends BaseController
     /**
      * 修改餐饮娱乐评价
      */
-    @RequiresPermissions("entertainment:reviews:edit")
     @Log(title = "餐饮娱乐评价", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Reviews reviews)
@@ -95,7 +90,6 @@ public class ReviewsController extends BaseController
     /**
      * 删除餐饮娱乐评价
      */
-    @RequiresPermissions("entertainment:reviews:remove")
     @Log(title = "餐饮娱乐评价", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)

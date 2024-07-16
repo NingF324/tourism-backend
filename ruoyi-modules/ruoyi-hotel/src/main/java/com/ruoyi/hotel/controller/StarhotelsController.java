@@ -26,7 +26,7 @@ import com.ruoyi.common.core.web.page.TableDataInfo;
  * 星级酒店信息Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-11
  */
 @RestController
 @RequestMapping("/starhotels")

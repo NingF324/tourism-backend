@@ -11,7 +11,7 @@ import com.ruoyi.hotel.service.INonstarbookingsService;
  * 非星级酒店预定信息Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
 @Service
 public class NonstarbookingsServiceImpl implements INonstarbookingsService 
@@ -89,5 +89,10 @@ public class NonstarbookingsServiceImpl implements INonstarbookingsService
     public int deleteNonstarbookingsById(Long id)
     {
         return nonstarbookingsMapper.deleteNonstarbookingsById(id);
+    }
+
+    @Override
+    public int confirmNonstarbookingsByIds(Long[] ids) {
+        return nonstarbookingsMapper.confirmNonstarbookingsByIds(ids);
     }
 }

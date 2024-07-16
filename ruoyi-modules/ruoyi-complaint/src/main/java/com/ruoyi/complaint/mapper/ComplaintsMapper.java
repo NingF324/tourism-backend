@@ -7,7 +7,7 @@ import com.ruoyi.complaint.domain.Complaints;
  * 投诉信息Mapper接口
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 public interface ComplaintsMapper 
 {
@@ -58,4 +58,8 @@ public interface ComplaintsMapper
      * @return 结果
      */
     public int deleteComplaintsByIds(Long[] ids);
+
+    public int confirmComplaintsByIds(Long[] ids);
+
+    public int handleComplaintsById(Long id);
 }

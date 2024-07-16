@@ -17,8 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectFeedbackresultsList" parameterType="Feedbackresults" resultMap="FeedbackresultsResult">
         <include refid="selectFeedbackresultsVo"/>
         <where>  
-            <if test="handleResultId != null "> and handle_result_id = #{handleResultId}</if>
-            <if test="rating != null "> and rating = #{rating}</if>
+            <if test="handleResultId != null "> and handle_result_id like concat('%', #{handleResultId}, '%')</if>
         </where>
     </select>
     
@@ -27,15 +26,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
 
-    <insert id="insertFeedbackresults" parameterType="Feedbackresults">
+    <insert id="insertFeedbackresults" parameterType="Feedbackresults" useGeneratedKeys="true" keyProperty="id">
         insert into feedbackresults
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">id,</if>
             <if test="handleResultId != null">handle_result_id,</if>
             <if test="rating != null">rating,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">#{id},</if>
             <if test="handleResultId != null">#{handleResultId},</if>
             <if test="rating != null">#{rating},</if>
          </trim>

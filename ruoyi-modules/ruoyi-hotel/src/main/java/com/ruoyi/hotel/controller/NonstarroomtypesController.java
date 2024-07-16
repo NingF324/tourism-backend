@@ -23,10 +23,10 @@ import com.ruoyi.common.core.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.web.page.TableDataInfo;
 
 /**
- * 非星级房型Controller
+ * 非星级酒店房型Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
 @RestController
 @RequestMapping("/nonstarroomtypes")
@@ -36,7 +36,7 @@ public class NonstarroomtypesController extends BaseController
     private INonstarroomtypesService nonstarroomtypesService;
 
     /**
-     * 查询非星级房型列表
+     * 查询非星级酒店房型列表
      */
     @RequiresPermissions("hotel:nonstarroomtypes:list")
     @GetMapping("/list")
@@ -48,20 +48,20 @@ public class NonstarroomtypesController extends BaseController
     }
 
     /**
-     * 导出非星级房型列表
+     * 导出非星级酒店房型列表
      */
     @RequiresPermissions("hotel:nonstarroomtypes:export")
-    @Log(title = "非星级房型", businessType = BusinessType.EXPORT)
+    @Log(title = "非星级酒店房型", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Nonstarroomtypes nonstarroomtypes)
     {
         List<Nonstarroomtypes> list = nonstarroomtypesService.selectNonstarroomtypesList(nonstarroomtypes);
         ExcelUtil<Nonstarroomtypes> util = new ExcelUtil<Nonstarroomtypes>(Nonstarroomtypes.class);
-        util.exportExcel(response, list, "非星级房型数据");
+        util.exportExcel(response, list, "非星级酒店房型数据");
     }
 
     /**
-     * 获取非星级房型详细信息
+     * 获取非星级酒店房型详细信息
      */
     @RequiresPermissions("hotel:nonstarroomtypes:query")
     @GetMapping(value = "/{id}")
@@ -71,10 +71,10 @@ public class NonstarroomtypesController extends BaseController
     }
 
     /**
-     * 新增非星级房型
+     * 新增非星级酒店房型
      */
     @RequiresPermissions("hotel:nonstarroomtypes:add")
-    @Log(title = "非星级房型", businessType = BusinessType.INSERT)
+    @Log(title = "非星级酒店房型", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Nonstarroomtypes nonstarroomtypes)
     {
@@ -82,10 +82,10 @@ public class NonstarroomtypesController extends BaseController
     }
 
     /**
-     * 修改非星级房型
+     * 修改非星级酒店房型
      */
     @RequiresPermissions("hotel:nonstarroomtypes:edit")
-    @Log(title = "非星级房型", businessType = BusinessType.UPDATE)
+    @Log(title = "非星级酒店房型", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Nonstarroomtypes nonstarroomtypes)
     {
@@ -93,10 +93,10 @@ public class NonstarroomtypesController extends BaseController
     }
 
     /**
-     * 删除非星级房型
+     * 删除非星级酒店房型
      */
     @RequiresPermissions("hotel:nonstarroomtypes:remove")
-    @Log(title = "非星级房型", businessType = BusinessType.DELETE)
+    @Log(title = "非星级酒店房型", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {

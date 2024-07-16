@@ -6,16 +6,16 @@ import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
- * 非星级酒店营销管理对象 nonstarmarketingrecords
+ * 非星级酒店营销记录对象 nonstarmarketingrecords
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
 public class Nonstarmarketingrecords extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** 营销数据id */
+    /** 营销记录id */
     private Long id;
 
     /** 酒店id */

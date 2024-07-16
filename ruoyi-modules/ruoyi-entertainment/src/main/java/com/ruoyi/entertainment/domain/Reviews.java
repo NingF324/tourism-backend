@@ -9,13 +9,13 @@ import com.ruoyi.common.core.web.domain.BaseEntity;
  * 餐饮娱乐评价对象 reviews
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 public class Reviews extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** 餐饮娱乐评价id */
+    /** 评价id */
     private Long id;
 
     /** 餐饮娱乐id */
@@ -26,8 +26,8 @@ public class Reviews extends BaseEntity
     @Excel(name = "内容")
     private String content;
 
-    /** 用户id */
-    @Excel(name = "用户id")
+    /** 评价人 */
+    @Excel(name = "评价人")
     private Long guestName;
 
     /** 评分 */

@@ -11,7 +11,7 @@ import com.ruoyi.emergency.service.IEmergencyinfoService;
  * 应急信息Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-12
  */
 @Service
 public class EmergencyinfoServiceImpl implements IEmergencyinfoService 
@@ -89,5 +89,10 @@ public class EmergencyinfoServiceImpl implements IEmergencyinfoService
     public int deleteEmergencyinfoById(Long id)
     {
         return emergencyinfoMapper.deleteEmergencyinfoById(id);
+    }
+
+    @Override
+    public int confirmEmergencyinfoByIds(Long[] ids) {
+        return emergencyinfoMapper.confirmEmergencyinfoByIds(ids);
     }
 }

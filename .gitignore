@@ -45,4 +45,4 @@ nbdist/
 !*/build/*.html
 !*/build/*.xml
 
-.env
+ruoyi-modules/ruoyi

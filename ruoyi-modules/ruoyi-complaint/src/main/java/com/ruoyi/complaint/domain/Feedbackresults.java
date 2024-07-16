@@ -6,16 +6,16 @@ import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
- * 投诉处理结果反馈对象 feedbackresults
+ * 投诉处理反馈信息对象 feedbackresults
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 public class Feedbackresults extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** 投诉处理结果反馈id */
+    /** 反馈id */
     private Long id;
 
     /** 处理结果id */

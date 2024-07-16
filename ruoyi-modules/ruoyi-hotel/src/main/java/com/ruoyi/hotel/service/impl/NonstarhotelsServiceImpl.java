@@ -8,10 +8,10 @@ import com.ruoyi.hotel.domain.Nonstarhotels;
 import com.ruoyi.hotel.service.INonstarhotelsService;
 
 /**
- * 非星级酒店管理Service业务层处理
+ * 非星级酒店Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
 @Service
 public class NonstarhotelsServiceImpl implements INonstarhotelsService 
@@ -20,10 +20,10 @@ public class NonstarhotelsServiceImpl implements INonstarhotelsService
     private NonstarhotelsMapper nonstarhotelsMapper;
 
     /**
-     * 查询非星级酒店管理
+     * 查询非星级酒店
      * 
-     * @param id 非星级酒店管理主键
-     * @return 非星级酒店管理
+     * @param id 非星级酒店主键
+     * @return 非星级酒店
      */
     @Override
     public Nonstarhotels selectNonstarhotelsById(Long id)
@@ -32,10 +32,10 @@ public class NonstarhotelsServiceImpl implements INonstarhotelsService
     }
 
     /**
-     * 查询非星级酒店管理列表
+     * 查询非星级酒店列表
      * 
-     * @param nonstarhotels 非星级酒店管理
-     * @return 非星级酒店管理
+     * @param nonstarhotels 非星级酒店
+     * @return 非星级酒店
      */
     @Override
     public List<Nonstarhotels> selectNonstarhotelsList(Nonstarhotels nonstarhotels)
@@ -44,9 +44,9 @@ public class NonstarhotelsServiceImpl implements INonstarhotelsService
     }
 
     /**
-     * 新增非星级酒店管理
+     * 新增非星级酒店
      * 
-     * @param nonstarhotels 非星级酒店管理
+     * @param nonstarhotels 非星级酒店
      * @return 结果
      */
     @Override
@@ -56,9 +56,9 @@ public class NonstarhotelsServiceImpl implements INonstarhotelsService
     }
 
     /**
-     * 修改非星级酒店管理
+     * 修改非星级酒店
      * 
-     * @param nonstarhotels 非星级酒店管理
+     * @param nonstarhotels 非星级酒店
      * @return 结果
      */
     @Override
@@ -68,9 +68,9 @@ public class NonstarhotelsServiceImpl implements INonstarhotelsService
     }
 
     /**
-     * 批量删除非星级酒店管理
+     * 批量删除非星级酒店
      * 
-     * @param ids 需要删除的非星级酒店管理主键
+     * @param ids 需要删除的非星级酒店主键
      * @return 结果
      */
     @Override
@@ -80,9 +80,9 @@ public class NonstarhotelsServiceImpl implements INonstarhotelsService
     }
 
     /**
-     * 删除非星级酒店管理信息
+     * 删除非星级酒店信息
      * 
-     * @param id 非星级酒店管理主键
+     * @param id 非星级酒店主键
      * @return 结果
      */
     @Override

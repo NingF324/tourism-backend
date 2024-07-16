@@ -28,16 +28,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
 
-    <insert id="insertStarmarketingrecords" parameterType="Starmarketingrecords">
+    <insert id="insertStarmarketingrecords" parameterType="Starmarketingrecords" useGeneratedKeys="true" keyProperty="id">
         insert into starmarketingrecords
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">id,</if>
             <if test="hotelId != null">hotel_id,</if>
             <if test="roomTypeId != null">room_type_id,</if>
             <if test="totalSales != null">total_sales,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">#{id},</if>
             <if test="hotelId != null">#{hotelId},</if>
             <if test="roomTypeId != null">#{roomTypeId},</if>
             <if test="totalSales != null">#{totalSales},</if>

@@ -7,7 +7,7 @@ import com.ruoyi.hotel.domain.Starhotels;
  * 星级酒店信息Mapper接口
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-11
  */
 public interface StarhotelsMapper 
 {

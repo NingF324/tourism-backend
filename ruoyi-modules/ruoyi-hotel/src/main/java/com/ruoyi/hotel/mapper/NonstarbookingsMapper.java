@@ -7,7 +7,7 @@ import com.ruoyi.hotel.domain.Nonstarbookings;
  * 非星级酒店预定信息Mapper接口
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
 public interface NonstarbookingsMapper 
 {
@@ -58,4 +58,6 @@ public interface NonstarbookingsMapper
      * @return 结果
      */
     public int deleteNonstarbookingsByIds(Long[] ids);
+
+    public int confirmNonstarbookingsByIds(Long[] ids);
 }

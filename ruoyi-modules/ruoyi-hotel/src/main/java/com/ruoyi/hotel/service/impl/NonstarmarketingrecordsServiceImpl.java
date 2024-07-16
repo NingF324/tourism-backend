@@ -8,10 +8,10 @@ import com.ruoyi.hotel.domain.Nonstarmarketingrecords;
 import com.ruoyi.hotel.service.INonstarmarketingrecordsService;
 
 /**
- * 非星级酒店营销管理Service业务层处理
+ * 非星级酒店营销记录Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
 @Service
 public class NonstarmarketingrecordsServiceImpl implements INonstarmarketingrecordsService 
@@ -20,10 +20,10 @@ public class NonstarmarketingrecordsServiceImpl implements INonstarmarketingreco
     private NonstarmarketingrecordsMapper nonstarmarketingrecordsMapper;
 
     /**
-     * 查询非星级酒店营销管理
+     * 查询非星级酒店营销记录
      * 
-     * @param id 非星级酒店营销管理主键
-     * @return 非星级酒店营销管理
+     * @param id 非星级酒店营销记录主键
+     * @return 非星级酒店营销记录
      */
     @Override
     public Nonstarmarketingrecords selectNonstarmarketingrecordsById(Long id)
@@ -32,10 +32,10 @@ public class NonstarmarketingrecordsServiceImpl implements INonstarmarketingreco
     }
 
     /**
-     * 查询非星级酒店营销管理列表
+     * 查询非星级酒店营销记录列表
      * 
-     * @param nonstarmarketingrecords 非星级酒店营销管理
-     * @return 非星级酒店营销管理
+     * @param nonstarmarketingrecords 非星级酒店营销记录
+     * @return 非星级酒店营销记录
      */
     @Override
     public List<Nonstarmarketingrecords> selectNonstarmarketingrecordsList(Nonstarmarketingrecords nonstarmarketingrecords)
@@ -44,9 +44,9 @@ public class NonstarmarketingrecordsServiceImpl implements INonstarmarketingreco
     }
 
     /**
-     * 新增非星级酒店营销管理
+     * 新增非星级酒店营销记录
      * 
-     * @param nonstarmarketingrecords 非星级酒店营销管理
+     * @param nonstarmarketingrecords 非星级酒店营销记录
      * @return 结果
      */
     @Override
@@ -56,9 +56,9 @@ public class NonstarmarketingrecordsServiceImpl implements INonstarmarketingreco
     }
 
     /**
-     * 修改非星级酒店营销管理
+     * 修改非星级酒店营销记录
      * 
-     * @param nonstarmarketingrecords 非星级酒店营销管理
+     * @param nonstarmarketingrecords 非星级酒店营销记录
      * @return 结果
      */
     @Override
@@ -68,9 +68,9 @@ public class NonstarmarketingrecordsServiceImpl implements INonstarmarketingreco
     }
 
     /**
-     * 批量删除非星级酒店营销管理
+     * 批量删除非星级酒店营销记录
      * 
-     * @param ids 需要删除的非星级酒店营销管理主键
+     * @param ids 需要删除的非星级酒店营销记录主键
      * @return 结果
      */
     @Override
@@ -80,9 +80,9 @@ public class NonstarmarketingrecordsServiceImpl implements INonstarmarketingreco
     }
 
     /**
-     * 删除非星级酒店营销管理信息
+     * 删除非星级酒店营销记录信息
      * 
-     * @param id 非星级酒店营销管理主键
+     * @param id 非星级酒店营销记录主键
      * @return 结果
      */
     @Override

@@ -26,7 +26,7 @@ import com.ruoyi.common.core.web.page.TableDataInfo;
  * 非星级酒店预定信息Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
 @RestController
 @RequestMapping("/nonstarbookings")
@@ -101,5 +101,12 @@ public class NonstarbookingsController extends BaseController
     public AjaxResult remove(@PathVariable Long[] ids)
     {
         return toAjax(nonstarbookingsService.deleteNonstarbookingsByIds(ids));
+    }
+
+    @RequiresPermissions("hotel:nonstarbookings:confirm")
+    @DeleteMapping("/confirm/{ids}")
+    public AjaxResult Confirm(@PathVariable Long[] ids)
+    {
+        return toAjax(nonstarbookingsService.confirmNonstarbookingsByIds(ids));
     }
 }

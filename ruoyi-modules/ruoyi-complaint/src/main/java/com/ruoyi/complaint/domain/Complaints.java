@@ -11,7 +11,7 @@ import com.ruoyi.common.core.web.domain.BaseEntity;
  * 投诉信息对象 complaints
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 public class Complaints extends BaseEntity
 {
@@ -24,23 +24,14 @@ public class Complaints extends BaseEntity
     @Excel(name = "内容")
     private String content;
 
-    /** 提交时间 */
+    /** 投诉时间 */
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "提交时间", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "投诉时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date submitTime;
 
-    /** 0为待审批，1为已经审批待处理，2为已处理待确认，3为已经结案 */
-    @Excel(name = "0为待审批，1为已经审批待处理，2为已处理待确认，3为已经结案")
-    private Long status;
-
-    /** 结果 */
-    @Excel(name = "结果")
-    private String result;
-
-    /** 处理时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "处理时间", width = 30, dateFormat = "yyyy-MM-dd")
-    private Date handleTime;
+    /** 状态 */
+    @Excel(name = "状态")
+    private String status;
 
     /** 投诉人id */
     @Excel(name = "投诉人id")
@@ -73,32 +64,14 @@ public class Complaints extends BaseEntity
     {
         return submitTime;
     }
-    public void setStatus(Long status) 
+    public void setStatus(String status) 
     {
         this.status = status;
     }
 
-    public Long getStatus() 
+    public String getStatus() 
     {
         return status;
-    }
-    public void setResult(String result) 
-    {
-        this.result = result;
-    }
-
-    public String getResult() 
-    {
-        return result;
-    }
-    public void setHandleTime(Date handleTime) 
-    {
-        this.handleTime = handleTime;
-    }
-
-    public Date getHandleTime() 
-    {
-        return handleTime;
     }
     public void setUserId(Long userId) 
     {
@@ -117,8 +90,6 @@ public class Complaints extends BaseEntity
             .append("content", getContent())
             .append("submitTime", getSubmitTime())
             .append("status", getStatus())
-            .append("result", getResult())
-            .append("handleTime", getHandleTime())
             .append("userId", getUserId())
             .toString();
     }

@@ -10,19 +10,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="validity"    column="validity"    />
         <result property="content"    column="content"    />
         <result property="status"    column="status"    />
-        <result property="scenicareaId"    column="scenicarea_id"    />
     </resultMap>
 
     <sql id="selectEmergencyinfoVo">
-        select id, priority, validity, content, status, scenicarea_id from emergencyinfo
+        select id, priority, validity, content, status from emergencyinfo
     </sql>
 
     <select id="selectEmergencyinfoList" parameterType="Emergencyinfo" resultMap="EmergencyinfoResult">
         <include refid="selectEmergencyinfoVo"/>
         <where>  
-            <if test="priority != null "> and priority = #{priority}</if>
             <if test="content != null  and content != ''"> and content = #{content}</if>
-            <if test="scenicareaId != null "> and scenicarea_id = #{scenicareaId}</if>
         </where>
     </select>
     
@@ -31,23 +28,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
 
-    <insert id="insertEmergencyinfo" parameterType="Emergencyinfo">
+    <insert id="insertEmergencyinfo" parameterType="Emergencyinfo" useGeneratedKeys="true" keyProperty="id">
         insert into emergencyinfo
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">id,</if>
             <if test="priority != null">priority,</if>
             <if test="validity != null">validity,</if>
             <if test="content != null and content != ''">content,</if>
             <if test="status != null">status,</if>
-            <if test="scenicareaId != null">scenicarea_id,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">#{id},</if>
             <if test="priority != null">#{priority},</if>
             <if test="validity != null">#{validity},</if>
             <if test="content != null and content != ''">#{content},</if>
             <if test="status != null">#{status},</if>
-            <if test="scenicareaId != null">#{scenicareaId},</if>
          </trim>
     </insert>
 
@@ -58,7 +51,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="validity != null">validity = #{validity},</if>
             <if test="content != null and content != ''">content = #{content},</if>
             <if test="status != null">status = #{status},</if>
-            <if test="scenicareaId != null">scenicarea_id = #{scenicareaId},</if>
         </trim>
         where id = #{id}
     </update>
@@ -73,4 +65,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <update id="confirmEmergencyinfoByIds" parameterType="String">
+        update emergencyinfo set status = 1 where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
 </mapper>

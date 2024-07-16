@@ -23,10 +23,10 @@ import com.ruoyi.common.core.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.web.page.TableDataInfo;
 
 /**
- * 星级酒店预定Controller
+ * 星级酒店预定信息Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-11
  */
 @RestController
 @RequestMapping("/starbookings")
@@ -36,7 +36,7 @@ public class StarbookingsController extends BaseController
     private IStarbookingsService starbookingsService;
 
     /**
-     * 查询星级酒店预定列表
+     * 查询星级酒店预定信息列表
      */
     @RequiresPermissions("hotel:starbookings:list")
     @GetMapping("/list")
@@ -48,20 +48,20 @@ public class StarbookingsController extends BaseController
     }
 
     /**
-     * 导出星级酒店预定列表
+     * 导出星级酒店预定信息列表
      */
     @RequiresPermissions("hotel:starbookings:export")
-    @Log(title = "星级酒店预定", businessType = BusinessType.EXPORT)
+    @Log(title = "星级酒店预定信息", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Starbookings starbookings)
     {
         List<Starbookings> list = starbookingsService.selectStarbookingsList(starbookings);
         ExcelUtil<Starbookings> util = new ExcelUtil<Starbookings>(Starbookings.class);
-        util.exportExcel(response, list, "星级酒店预定数据");
+        util.exportExcel(response, list, "星级酒店预定信息数据");
     }
 
     /**
-     * 获取星级酒店预定详细信息
+     * 获取星级酒店预定信息详细信息
      */
     @RequiresPermissions("hotel:starbookings:query")
     @GetMapping(value = "/{id}")
@@ -71,10 +71,10 @@ public class StarbookingsController extends BaseController
     }
 
     /**
-     * 新增星级酒店预定
+     * 新增星级酒店预定信息
      */
     @RequiresPermissions("hotel:starbookings:add")
-    @Log(title = "星级酒店预定", businessType = BusinessType.INSERT)
+    @Log(title = "星级酒店预定信息", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Starbookings starbookings)
     {
@@ -82,10 +82,10 @@ public class StarbookingsController extends BaseController
     }
 
     /**
-     * 修改星级酒店预定
+     * 修改星级酒店预定信息
      */
     @RequiresPermissions("hotel:starbookings:edit")
-    @Log(title = "星级酒店预定", businessType = BusinessType.UPDATE)
+    @Log(title = "星级酒店预定信息", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Starbookings starbookings)
     {
@@ -93,13 +93,22 @@ public class StarbookingsController extends BaseController
     }
 
     /**
-     * 删除星级酒店预定
+     * 删除星级酒店预定信息
      */
     @RequiresPermissions("hotel:starbookings:remove")
-    @Log(title = "星级酒店预定", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{ids}")
+    @DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {
         return toAjax(starbookingsService.deleteStarbookingsByIds(ids));
+    }
+
+    /**
+     * 删除星级酒店预定信息
+     */
+    @RequiresPermissions("hotel:starbookings:remove")
+    @DeleteMapping("/confirm/{ids}")
+    public AjaxResult Confirm(@PathVariable Long[] ids)
+    {
+        return toAjax(starbookingsService.confirmStarbookingsByIds(ids));
     }
 }

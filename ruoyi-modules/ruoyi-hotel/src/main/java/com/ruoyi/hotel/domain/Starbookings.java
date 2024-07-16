@@ -1,15 +1,17 @@
 package com.ruoyi.hotel.domain;
 
+import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
- * 星级酒店预定对象 starbookings
+ * 星级酒店预定信息对象 starbookings
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-11
  */
 public class Starbookings extends BaseEntity
 {
@@ -26,17 +28,35 @@ public class Starbookings extends BaseEntity
     @Excel(name = "房型id")
     private Long roomTypeId;
 
-    /** 用户id */
-    @Excel(name = "用户id")
-    private Long guestName;
+    /** 预约人id */
+    @Excel(name = "预约人id")
+    private Long guestId;
 
-    /** 联系电话 */
-    @Excel(name = "联系电话")
+    /** 联系方式 */
+    @Excel(name = "联系方式")
     private String contactNumber;
 
-    /** 是否已确认 */
-    @Excel(name = "是否已确认")
+    /** 是否确认 */
+    @Excel(name = "是否确认")
     private Integer recorded;
+
+    /** 开房时间 */
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Excel(name = "开房时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date checkInTime;
+
+    /** 退房时间 */
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Excel(name = "退房时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date checkOutTime;
+
+    /** 住客姓名 */
+    @Excel(name = "住客姓名")
+    private String guestName;
+
+    /** 所有人id */
+    @Excel(name = "所有人id")
+    private Long ownerId;
 
     public void setId(Long id) 
     {
@@ -65,14 +85,14 @@ public class Starbookings extends BaseEntity
     {
         return roomTypeId;
     }
-    public void setGuestName(Long guestName) 
+    public void setGuestId(Long guestId) 
     {
-        this.guestName = guestName;
+        this.guestId = guestId;
     }
 
-    public Long getGuestName() 
+    public Long getGuestId() 
     {
-        return guestName;
+        return guestId;
     }
     public void setContactNumber(String contactNumber) 
     {
@@ -92,6 +112,42 @@ public class Starbookings extends BaseEntity
     {
         return recorded;
     }
+    public void setCheckInTime(Date checkInTime) 
+    {
+        this.checkInTime = checkInTime;
+    }
+
+    public Date getCheckInTime() 
+    {
+        return checkInTime;
+    }
+    public void setCheckOutTime(Date checkOutTime) 
+    {
+        this.checkOutTime = checkOutTime;
+    }
+
+    public Date getCheckOutTime() 
+    {
+        return checkOutTime;
+    }
+    public void setGuestName(String guestName) 
+    {
+        this.guestName = guestName;
+    }
+
+    public String getGuestName() 
+    {
+        return guestName;
+    }
+    public void setOwnerId(Long ownerId) 
+    {
+        this.ownerId = ownerId;
+    }
+
+    public Long getOwnerId() 
+    {
+        return ownerId;
+    }
 
     @Override
     public String toString() {
@@ -99,9 +155,13 @@ public class Starbookings extends BaseEntity
             .append("id", getId())
             .append("hotelId", getHotelId())
             .append("roomTypeId", getRoomTypeId())
-            .append("guestName", getGuestName())
+            .append("guestId", getGuestId())
             .append("contactNumber", getContactNumber())
             .append("recorded", getRecorded())
+            .append("checkInTime", getCheckInTime())
+            .append("checkOutTime", getCheckOutTime())
+            .append("guestName", getGuestName())
+            .append("ownerId", getOwnerId())
             .toString();
     }
 }

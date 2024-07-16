@@ -7,7 +7,7 @@ import com.ruoyi.emergency.domain.Emergencyinfo;
  * 应急信息Mapper接口
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-12
  */
 public interface EmergencyinfoMapper 
 {
@@ -58,4 +58,6 @@ public interface EmergencyinfoMapper
      * @return 结果
      */
     public int deleteEmergencyinfoByIds(Long[] ids);
+
+    public int confirmEmergencyinfoByIds(Long[] ids);
 }

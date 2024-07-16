@@ -8,10 +8,10 @@ import com.ruoyi.hotel.domain.Starbookings;
 import com.ruoyi.hotel.service.IStarbookingsService;
 
 /**
- * 星级酒店预定Service业务层处理
+ * 星级酒店预定信息Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-11
  */
 @Service
 public class StarbookingsServiceImpl implements IStarbookingsService 
@@ -20,10 +20,10 @@ public class StarbookingsServiceImpl implements IStarbookingsService
     private StarbookingsMapper starbookingsMapper;
 
     /**
-     * 查询星级酒店预定
+     * 查询星级酒店预定信息
      * 
-     * @param id 星级酒店预定主键
-     * @return 星级酒店预定
+     * @param id 星级酒店预定信息主键
+     * @return 星级酒店预定信息
      */
     @Override
     public Starbookings selectStarbookingsById(Long id)
@@ -32,10 +32,10 @@ public class StarbookingsServiceImpl implements IStarbookingsService
     }
 
     /**
-     * 查询星级酒店预定列表
+     * 查询星级酒店预定信息列表
      * 
-     * @param starbookings 星级酒店预定
-     * @return 星级酒店预定
+     * @param starbookings 星级酒店预定信息
+     * @return 星级酒店预定信息
      */
     @Override
     public List<Starbookings> selectStarbookingsList(Starbookings starbookings)
@@ -44,9 +44,9 @@ public class StarbookingsServiceImpl implements IStarbookingsService
     }
 
     /**
-     * 新增星级酒店预定
+     * 新增星级酒店预定信息
      * 
-     * @param starbookings 星级酒店预定
+     * @param starbookings 星级酒店预定信息
      * @return 结果
      */
     @Override
@@ -56,9 +56,9 @@ public class StarbookingsServiceImpl implements IStarbookingsService
     }
 
     /**
-     * 修改星级酒店预定
+     * 修改星级酒店预定信息
      * 
-     * @param starbookings 星级酒店预定
+     * @param starbookings 星级酒店预定信息
      * @return 结果
      */
     @Override
@@ -68,9 +68,9 @@ public class StarbookingsServiceImpl implements IStarbookingsService
     }
 
     /**
-     * 批量删除星级酒店预定
+     * 批量删除星级酒店预定信息
      * 
-     * @param ids 需要删除的星级酒店预定主键
+     * @param ids 需要删除的星级酒店预定信息主键
      * @return 结果
      */
     @Override
@@ -80,14 +80,19 @@ public class StarbookingsServiceImpl implements IStarbookingsService
     }
 
     /**
-     * 删除星级酒店预定信息
+     * 删除星级酒店预定信息信息
      * 
-     * @param id 星级酒店预定主键
+     * @param id 星级酒店预定信息主键
      * @return 结果
      */
     @Override
     public int deleteStarbookingsById(Long id)
     {
         return starbookingsMapper.deleteStarbookingsById(id);
+    }
+
+    @Override
+    public int confirmStarbookingsByIds(Long[] ids) {
+        return starbookingsMapper.confirmStarbookingsByIds(ids);
     }
 }

@@ -8,10 +8,10 @@ import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
- * 投诉处理信息对象 handlingresults
+ * 投诉处理结果对象 handlingresults
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 public class Handlingresults extends BaseEntity
 {
@@ -24,8 +24,8 @@ public class Handlingresults extends BaseEntity
     @Excel(name = "投诉id")
     private Long complaintId;
 
-    /** 结果 */
-    @Excel(name = "结果")
+    /** 内容 */
+    @Excel(name = "内容")
     private String result;
 
     /** 处理时间 */
@@ -36,6 +36,10 @@ public class Handlingresults extends BaseEntity
     /** 处理人id */
     @Excel(name = "处理人id")
     private Long handlerId;
+
+    /** 图片 */
+    @Excel(name = "图片")
+    private String picUrl;
 
     public void setId(Long id) 
     {
@@ -82,6 +86,15 @@ public class Handlingresults extends BaseEntity
     {
         return handlerId;
     }
+    public void setPicUrl(String picUrl) 
+    {
+        this.picUrl = picUrl;
+    }
+
+    public String getPicUrl() 
+    {
+        return picUrl;
+    }
 
     @Override
     public String toString() {
@@ -91,6 +104,7 @@ public class Handlingresults extends BaseEntity
             .append("result", getResult())
             .append("handleTime", getHandleTime())
             .append("handlerId", getHandlerId())
+            .append("picUrl", getPicUrl())
             .toString();
     }
 }

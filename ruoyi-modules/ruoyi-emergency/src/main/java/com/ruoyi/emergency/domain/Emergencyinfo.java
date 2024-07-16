@@ -11,7 +11,7 @@ import com.ruoyi.common.core.web.domain.BaseEntity;
  * 应急信息对象 emergencyinfo
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-12
  */
 public class Emergencyinfo extends BaseEntity
 {
@@ -29,17 +29,13 @@ public class Emergencyinfo extends BaseEntity
     @Excel(name = "截止日期", width = 30, dateFormat = "yyyy-MM-dd")
     private Date validity;
 
-    /** 内容 */
-    @Excel(name = "内容")
+    /** 文本内容 */
+    @Excel(name = "文本内容")
     private String content;
 
     /** 状态 */
     @Excel(name = "状态")
     private Long status;
-
-    /** 景区id */
-    @Excel(name = "景区id")
-    private Long scenicareaId;
 
     public void setId(Long id) 
     {
@@ -86,15 +82,6 @@ public class Emergencyinfo extends BaseEntity
     {
         return status;
     }
-    public void setScenicareaId(Long scenicareaId) 
-    {
-        this.scenicareaId = scenicareaId;
-    }
-
-    public Long getScenicareaId() 
-    {
-        return scenicareaId;
-    }
 
     @Override
     public String toString() {
@@ -104,7 +91,6 @@ public class Emergencyinfo extends BaseEntity
             .append("validity", getValidity())
             .append("content", getContent())
             .append("status", getStatus())
-            .append("scenicareaId", getScenicareaId())
             .toString();
     }
 }

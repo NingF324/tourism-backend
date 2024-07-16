@@ -23,10 +23,10 @@ import com.ruoyi.common.core.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.web.page.TableDataInfo;
 
 /**
- * 星级酒店房型管理Controller
+ * 星级酒店房型Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-12
  */
 @RestController
 @RequestMapping("/starroomtypes")
@@ -36,7 +36,7 @@ public class StarroomtypesController extends BaseController
     private IStarroomtypesService starroomtypesService;
 
     /**
-     * 查询星级酒店房型管理列表
+     * 查询星级酒店房型列表
      */
     @RequiresPermissions("hotel:starroomtypes:list")
     @GetMapping("/list")
@@ -48,20 +48,20 @@ public class StarroomtypesController extends BaseController
     }
 
     /**
-     * 导出星级酒店房型管理列表
+     * 导出星级酒店房型列表
      */
     @RequiresPermissions("hotel:starroomtypes:export")
-    @Log(title = "星级酒店房型管理", businessType = BusinessType.EXPORT)
+    @Log(title = "星级酒店房型", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Starroomtypes starroomtypes)
     {
         List<Starroomtypes> list = starroomtypesService.selectStarroomtypesList(starroomtypes);
         ExcelUtil<Starroomtypes> util = new ExcelUtil<Starroomtypes>(Starroomtypes.class);
-        util.exportExcel(response, list, "星级酒店房型管理数据");
+        util.exportExcel(response, list, "星级酒店房型数据");
     }
 
     /**
-     * 获取星级酒店房型管理详细信息
+     * 获取星级酒店房型详细信息
      */
     @RequiresPermissions("hotel:starroomtypes:query")
     @GetMapping(value = "/{id}")
@@ -71,10 +71,10 @@ public class StarroomtypesController extends BaseController
     }
 
     /**
-     * 新增星级酒店房型管理
+     * 新增星级酒店房型
      */
     @RequiresPermissions("hotel:starroomtypes:add")
-    @Log(title = "星级酒店房型管理", businessType = BusinessType.INSERT)
+    @Log(title = "星级酒店房型", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Starroomtypes starroomtypes)
     {
@@ -82,10 +82,10 @@ public class StarroomtypesController extends BaseController
     }
 
     /**
-     * 修改星级酒店房型管理
+     * 修改星级酒店房型
      */
     @RequiresPermissions("hotel:starroomtypes:edit")
-    @Log(title = "星级酒店房型管理", businessType = BusinessType.UPDATE)
+    @Log(title = "星级酒店房型", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Starroomtypes starroomtypes)
     {
@@ -93,10 +93,10 @@ public class StarroomtypesController extends BaseController
     }
 
     /**
-     * 删除星级酒店房型管理
+     * 删除星级酒店房型
      */
     @RequiresPermissions("hotel:starroomtypes:remove")
-    @Log(title = "星级酒店房型管理", businessType = BusinessType.DELETE)
+    @Log(title = "星级酒店房型", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {

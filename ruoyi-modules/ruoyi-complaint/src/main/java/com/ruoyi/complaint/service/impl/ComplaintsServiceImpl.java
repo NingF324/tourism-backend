@@ -1,6 +1,8 @@
 package com.ruoyi.complaint.service.impl;
 
 import java.util.List;
+
+import com.ruoyi.complaint.mapper.HandlingresultsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.complaint.mapper.ComplaintsMapper;
@@ -11,13 +13,16 @@ import com.ruoyi.complaint.service.IComplaintsService;
  * 投诉信息Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 @Service
 public class ComplaintsServiceImpl implements IComplaintsService 
 {
     @Autowired
     private ComplaintsMapper complaintsMapper;
+
+    @Autowired
+    private HandlingresultsMapper handlingresultsMapper;
 
     /**
      * 查询投诉信息
@@ -90,4 +95,13 @@ public class ComplaintsServiceImpl implements IComplaintsService
     {
         return complaintsMapper.deleteComplaintsById(id);
     }
+
+    @Override
+    public int confirmComplaintsByIds(Long[] ids) {
+        handlingresultsMapper.insertHandlingresultsbyId(ids);
+        return complaintsMapper.confirmComplaintsByIds(ids);
+
+    }
+
+
 }

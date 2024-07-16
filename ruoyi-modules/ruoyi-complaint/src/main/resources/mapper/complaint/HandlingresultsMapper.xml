@@ -10,16 +10,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="result"    column="result"    />
         <result property="handleTime"    column="handle_time"    />
         <result property="handlerId"    column="handler_id"    />
+        <result property="picUrl"    column="pic_url"    />
     </resultMap>
 
     <sql id="selectHandlingresultsVo">
-        select id, complaint_id, result, handle_time, handler_id from handlingresults
+        select id, complaint_id, result, handle_time, handler_id, pic_url from handlingresults
     </sql>
 
     <select id="selectHandlingresultsList" parameterType="Handlingresults" resultMap="HandlingresultsResult">
         <include refid="selectHandlingresultsVo"/>
         <where>  
-            <if test="complaintId != null "> and complaint_id = #{complaintId}</if>
+            <if test="result != null  and result != ''"> and result like concat('%', #{result}, '%')</if>
             <if test="handlerId != null "> and handler_id = #{handlerId}</if>
         </where>
     </select>
@@ -29,22 +30,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
 
-    <insert id="insertHandlingresults" parameterType="Handlingresults">
+    <insert id="insertHandlingresults" parameterType="Handlingresults" useGeneratedKeys="true" keyProperty="id">
         insert into handlingresults
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">id,</if>
             <if test="complaintId != null">complaint_id,</if>
             <if test="result != null and result != ''">result,</if>
             <if test="handleTime != null">handle_time,</if>
             <if test="handlerId != null">handler_id,</if>
+            <if test="picUrl != null">pic_url,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">#{id},</if>
             <if test="complaintId != null">#{complaintId},</if>
             <if test="result != null and result != ''">#{result},</if>
             <if test="handleTime != null">#{handleTime},</if>
             <if test="handlerId != null">#{handlerId},</if>
+            <if test="picUrl != null">#{picUrl},</if>
          </trim>
+    </insert>
+
+    <insert id="insertHandlingresultsbyId" parameterType="String">
+        INSERT INTO handlingresults (complaint_id) VALUES
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
     </insert>
 
     <update id="updateHandlingresults" parameterType="Handlingresults">
@@ -54,6 +62,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="result != null and result != ''">result = #{result},</if>
             <if test="handleTime != null">handle_time = #{handleTime},</if>
             <if test="handlerId != null">handler_id = #{handlerId},</if>
+            <if test="picUrl != null">pic_url = #{picUrl},</if>
         </trim>
         where id = #{id}
     </update>

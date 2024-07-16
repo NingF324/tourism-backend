@@ -23,10 +23,10 @@ import com.ruoyi.common.core.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.web.page.TableDataInfo;
 
 /**
- * 投诉处理信息Controller
+ * 投诉处理结果Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 @RestController
 @RequestMapping("/handlingresults")
@@ -36,7 +36,7 @@ public class HandlingresultsController extends BaseController
     private IHandlingresultsService handlingresultsService;
 
     /**
-     * 查询投诉处理信息列表
+     * 查询投诉处理结果列表
      */
     @RequiresPermissions("complaint:handlingresults:list")
     @GetMapping("/list")
@@ -48,20 +48,20 @@ public class HandlingresultsController extends BaseController
     }
 
     /**
-     * 导出投诉处理信息列表
+     * 导出投诉处理结果列表
      */
     @RequiresPermissions("complaint:handlingresults:export")
-    @Log(title = "投诉处理信息", businessType = BusinessType.EXPORT)
+    @Log(title = "投诉处理结果", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Handlingresults handlingresults)
     {
         List<Handlingresults> list = handlingresultsService.selectHandlingresultsList(handlingresults);
         ExcelUtil<Handlingresults> util = new ExcelUtil<Handlingresults>(Handlingresults.class);
-        util.exportExcel(response, list, "投诉处理信息数据");
+        util.exportExcel(response, list, "投诉处理结果数据");
     }
 
     /**
-     * 获取投诉处理信息详细信息
+     * 获取投诉处理结果详细信息
      */
     @RequiresPermissions("complaint:handlingresults:query")
     @GetMapping(value = "/{id}")
@@ -71,10 +71,10 @@ public class HandlingresultsController extends BaseController
     }
 
     /**
-     * 新增投诉处理信息
+     * 新增投诉处理结果
      */
     @RequiresPermissions("complaint:handlingresults:add")
-    @Log(title = "投诉处理信息", businessType = BusinessType.INSERT)
+    @Log(title = "投诉处理结果", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Handlingresults handlingresults)
     {
@@ -82,10 +82,10 @@ public class HandlingresultsController extends BaseController
     }
 
     /**
-     * 修改投诉处理信息
+     * 修改投诉处理结果
      */
     @RequiresPermissions("complaint:handlingresults:edit")
-    @Log(title = "投诉处理信息", businessType = BusinessType.UPDATE)
+    @Log(title = "投诉处理结果", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Handlingresults handlingresults)
     {
@@ -93,10 +93,10 @@ public class HandlingresultsController extends BaseController
     }
 
     /**
-     * 删除投诉处理信息
+     * 删除投诉处理结果
      */
     @RequiresPermissions("complaint:handlingresults:remove")
-    @Log(title = "投诉处理信息", businessType = BusinessType.DELETE)
+    @Log(title = "投诉处理结果", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {

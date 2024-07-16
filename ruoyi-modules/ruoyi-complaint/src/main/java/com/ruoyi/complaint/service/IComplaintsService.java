@@ -7,7 +7,7 @@ import com.ruoyi.complaint.domain.Complaints;
  * 投诉信息Service接口
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 public interface IComplaintsService 
 {
@@ -58,4 +58,6 @@ public interface IComplaintsService
      * @return 结果
      */
     public int deleteComplaintsById(Long id);
+
+    public int confirmComplaintsByIds(Long[] ids);
 }

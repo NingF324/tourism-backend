@@ -8,10 +8,10 @@ import com.ruoyi.hotel.domain.Starhotelreviews;
 import com.ruoyi.hotel.service.IStarhotelreviewsService;
 
 /**
- * 星级酒店评价管理Service业务层处理
+ * 星级酒店评价Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 @Service
 public class StarhotelreviewsServiceImpl implements IStarhotelreviewsService 
@@ -20,10 +20,10 @@ public class StarhotelreviewsServiceImpl implements IStarhotelreviewsService
     private StarhotelreviewsMapper starhotelreviewsMapper;
 
     /**
-     * 查询星级酒店评价管理
+     * 查询星级酒店评价
      * 
-     * @param id 星级酒店评价管理主键
-     * @return 星级酒店评价管理
+     * @param id 星级酒店评价主键
+     * @return 星级酒店评价
      */
     @Override
     public Starhotelreviews selectStarhotelreviewsById(Long id)
@@ -32,10 +32,10 @@ public class StarhotelreviewsServiceImpl implements IStarhotelreviewsService
     }
 
     /**
-     * 查询星级酒店评价管理列表
+     * 查询星级酒店评价列表
      * 
-     * @param starhotelreviews 星级酒店评价管理
-     * @return 星级酒店评价管理
+     * @param starhotelreviews 星级酒店评价
+     * @return 星级酒店评价
      */
     @Override
     public List<Starhotelreviews> selectStarhotelreviewsList(Starhotelreviews starhotelreviews)
@@ -44,9 +44,9 @@ public class StarhotelreviewsServiceImpl implements IStarhotelreviewsService
     }
 
     /**
-     * 新增星级酒店评价管理
+     * 新增星级酒店评价
      * 
-     * @param starhotelreviews 星级酒店评价管理
+     * @param starhotelreviews 星级酒店评价
      * @return 结果
      */
     @Override
@@ -56,9 +56,9 @@ public class StarhotelreviewsServiceImpl implements IStarhotelreviewsService
     }
 
     /**
-     * 修改星级酒店评价管理
+     * 修改星级酒店评价
      * 
-     * @param starhotelreviews 星级酒店评价管理
+     * @param starhotelreviews 星级酒店评价
      * @return 结果
      */
     @Override
@@ -68,9 +68,9 @@ public class StarhotelreviewsServiceImpl implements IStarhotelreviewsService
     }
 
     /**
-     * 批量删除星级酒店评价管理
+     * 批量删除星级酒店评价
      * 
-     * @param ids 需要删除的星级酒店评价管理主键
+     * @param ids 需要删除的星级酒店评价主键
      * @return 结果
      */
     @Override
@@ -80,9 +80,9 @@ public class StarhotelreviewsServiceImpl implements IStarhotelreviewsService
     }
 
     /**
-     * 删除星级酒店评价管理信息
+     * 删除星级酒店评价信息
      * 
-     * @param id 星级酒店评价管理主键
+     * @param id 星级酒店评价主键
      * @return 结果
      */
     @Override

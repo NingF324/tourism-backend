@@ -11,16 +11,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="price"    column="price"    />
         <result property="quantity"    column="quantity"    />
         <result property="sales"    column="sales"    />
+        <result property="imageUrl"    column="imageUrl"    />
+        <result property="ownerId"    column="owner_id"    />
     </resultMap>
 
     <sql id="selectNonstarroomtypesVo">
-        select id, hotel_id, name, price, quantity, sales from nonstarroomtypes
+        select id, hotel_id, name, price, quantity, sales, imageUrl, owner_id from nonstarroomtypes
     </sql>
 
     <select id="selectNonstarroomtypesList" parameterType="Nonstarroomtypes" resultMap="NonstarroomtypesResult">
         <include refid="selectNonstarroomtypesVo"/>
         <where>  
-            <if test="hotelId != null "> and hotel_id = #{hotelId}</if>
+            <if test="hotelId != null "> and hotel_id like concat('%', #{hotelId}, '%')</if>
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
         </where>
     </select>
@@ -30,23 +32,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
 
-    <insert id="insertNonstarroomtypes" parameterType="Nonstarroomtypes">
+    <insert id="insertNonstarroomtypes" parameterType="Nonstarroomtypes" useGeneratedKeys="true" keyProperty="id">
         insert into nonstarroomtypes
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">id,</if>
             <if test="hotelId != null">hotel_id,</if>
             <if test="name != null and name != ''">name,</if>
             <if test="price != null">price,</if>
             <if test="quantity != null">quantity,</if>
             <if test="sales != null">sales,</if>
+            <if test="imageUrl != null">imageUrl,</if>
+            <if test="ownerId != null">owner_id,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">#{id},</if>
             <if test="hotelId != null">#{hotelId},</if>
             <if test="name != null and name != ''">#{name},</if>
             <if test="price != null">#{price},</if>
             <if test="quantity != null">#{quantity},</if>
             <if test="sales != null">#{sales},</if>
+            <if test="imageUrl != null">#{imageUrl},</if>
+            <if test="ownerId != null">#{ownerId},</if>
          </trim>
     </insert>
 
@@ -58,6 +62,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="price != null">price = #{price},</if>
             <if test="quantity != null">quantity = #{quantity},</if>
             <if test="sales != null">sales = #{sales},</if>
+            <if test="imageUrl != null">imageUrl = #{imageUrl},</if>
+            <if test="ownerId != null">owner_id = #{ownerId},</if>
         </trim>
         where id = #{id}
     </update>

@@ -8,10 +8,10 @@ import com.ruoyi.complaint.domain.Feedbackresults;
 import com.ruoyi.complaint.service.IFeedbackresultsService;
 
 /**
- * 投诉处理结果反馈Service业务层处理
+ * 投诉处理反馈信息Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 @Service
 public class FeedbackresultsServiceImpl implements IFeedbackresultsService 
@@ -20,10 +20,10 @@ public class FeedbackresultsServiceImpl implements IFeedbackresultsService
     private FeedbackresultsMapper feedbackresultsMapper;
 
     /**
-     * 查询投诉处理结果反馈
+     * 查询投诉处理反馈信息
      * 
-     * @param id 投诉处理结果反馈主键
-     * @return 投诉处理结果反馈
+     * @param id 投诉处理反馈信息主键
+     * @return 投诉处理反馈信息
      */
     @Override
     public Feedbackresults selectFeedbackresultsById(Long id)
@@ -32,10 +32,10 @@ public class FeedbackresultsServiceImpl implements IFeedbackresultsService
     }
 
     /**
-     * 查询投诉处理结果反馈列表
+     * 查询投诉处理反馈信息列表
      * 
-     * @param feedbackresults 投诉处理结果反馈
-     * @return 投诉处理结果反馈
+     * @param feedbackresults 投诉处理反馈信息
+     * @return 投诉处理反馈信息
      */
     @Override
     public List<Feedbackresults> selectFeedbackresultsList(Feedbackresults feedbackresults)
@@ -44,9 +44,9 @@ public class FeedbackresultsServiceImpl implements IFeedbackresultsService
     }
 
     /**
-     * 新增投诉处理结果反馈
+     * 新增投诉处理反馈信息
      * 
-     * @param feedbackresults 投诉处理结果反馈
+     * @param feedbackresults 投诉处理反馈信息
      * @return 结果
      */
     @Override
@@ -56,9 +56,9 @@ public class FeedbackresultsServiceImpl implements IFeedbackresultsService
     }
 
     /**
-     * 修改投诉处理结果反馈
+     * 修改投诉处理反馈信息
      * 
-     * @param feedbackresults 投诉处理结果反馈
+     * @param feedbackresults 投诉处理反馈信息
      * @return 结果
      */
     @Override
@@ -68,9 +68,9 @@ public class FeedbackresultsServiceImpl implements IFeedbackresultsService
     }
 
     /**
-     * 批量删除投诉处理结果反馈
+     * 批量删除投诉处理反馈信息
      * 
-     * @param ids 需要删除的投诉处理结果反馈主键
+     * @param ids 需要删除的投诉处理反馈信息主键
      * @return 结果
      */
     @Override
@@ -80,9 +80,9 @@ public class FeedbackresultsServiceImpl implements IFeedbackresultsService
     }
 
     /**
-     * 删除投诉处理结果反馈信息
+     * 删除投诉处理反馈信息信息
      * 
-     * @param id 投诉处理结果反馈主键
+     * @param id 投诉处理反馈信息主键
      * @return 结果
      */
     @Override

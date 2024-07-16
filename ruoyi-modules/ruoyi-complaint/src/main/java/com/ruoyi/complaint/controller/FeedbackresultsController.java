@@ -23,10 +23,10 @@ import com.ruoyi.common.core.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.web.page.TableDataInfo;
 
 /**
- * 投诉处理结果反馈Controller
+ * 投诉处理反馈信息Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 @RestController
 @RequestMapping("/feedbackresults")
@@ -36,7 +36,7 @@ public class FeedbackresultsController extends BaseController
     private IFeedbackresultsService feedbackresultsService;
 
     /**
-     * 查询投诉处理结果反馈列表
+     * 查询投诉处理反馈信息列表
      */
     @RequiresPermissions("complaint:feedbackresults:list")
     @GetMapping("/list")
@@ -48,20 +48,20 @@ public class FeedbackresultsController extends BaseController
     }
 
     /**
-     * 导出投诉处理结果反馈列表
+     * 导出投诉处理反馈信息列表
      */
     @RequiresPermissions("complaint:feedbackresults:export")
-    @Log(title = "投诉处理结果反馈", businessType = BusinessType.EXPORT)
+    @Log(title = "投诉处理反馈信息", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Feedbackresults feedbackresults)
     {
         List<Feedbackresults> list = feedbackresultsService.selectFeedbackresultsList(feedbackresults);
         ExcelUtil<Feedbackresults> util = new ExcelUtil<Feedbackresults>(Feedbackresults.class);
-        util.exportExcel(response, list, "投诉处理结果反馈数据");
+        util.exportExcel(response, list, "投诉处理反馈信息数据");
     }
 
     /**
-     * 获取投诉处理结果反馈详细信息
+     * 获取投诉处理反馈信息详细信息
      */
     @RequiresPermissions("complaint:feedbackresults:query")
     @GetMapping(value = "/{id}")
@@ -71,10 +71,10 @@ public class FeedbackresultsController extends BaseController
     }
 
     /**
-     * 新增投诉处理结果反馈
+     * 新增投诉处理反馈信息
      */
     @RequiresPermissions("complaint:feedbackresults:add")
-    @Log(title = "投诉处理结果反馈", businessType = BusinessType.INSERT)
+    @Log(title = "投诉处理反馈信息", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Feedbackresults feedbackresults)
     {
@@ -82,10 +82,10 @@ public class FeedbackresultsController extends BaseController
     }
 
     /**
-     * 修改投诉处理结果反馈
+     * 修改投诉处理反馈信息
      */
     @RequiresPermissions("complaint:feedbackresults:edit")
-    @Log(title = "投诉处理结果反馈", businessType = BusinessType.UPDATE)
+    @Log(title = "投诉处理反馈信息", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Feedbackresults feedbackresults)
     {
@@ -93,10 +93,10 @@ public class FeedbackresultsController extends BaseController
     }
 
     /**
-     * 删除投诉处理结果反馈
+     * 删除投诉处理反馈信息
      */
     @RequiresPermissions("complaint:feedbackresults:remove")
-    @Log(title = "投诉处理结果反馈", businessType = BusinessType.DELETE)
+    @Log(title = "投诉处理反馈信息", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {

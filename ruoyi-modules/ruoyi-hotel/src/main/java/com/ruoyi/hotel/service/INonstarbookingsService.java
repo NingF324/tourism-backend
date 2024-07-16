@@ -7,13 +7,12 @@ import com.ruoyi.hotel.domain.Nonstarbookings;
  * 非星级酒店预定信息Service接口
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
-public interface INonstarbookingsService 
-{
+public interface INonstarbookingsService {
     /**
      * 查询非星级酒店预定信息
-     * 
+     *
      * @param id 非星级酒店预定信息主键
      * @return 非星级酒店预定信息
      */
@@ -21,7 +20,7 @@ public interface INonstarbookingsService
 
     /**
      * 查询非星级酒店预定信息列表
-     * 
+     *
      * @param nonstarbookings 非星级酒店预定信息
      * @return 非星级酒店预定信息集合
      */
@@ -29,7 +28,7 @@ public interface INonstarbookingsService
 
     /**
      * 新增非星级酒店预定信息
-     * 
+     *
      * @param nonstarbookings 非星级酒店预定信息
      * @return 结果
      */
@@ -37,7 +36,7 @@ public interface INonstarbookingsService
 
     /**
      * 修改非星级酒店预定信息
-     * 
+     *
      * @param nonstarbookings 非星级酒店预定信息
      * @return 结果
      */
@@ -45,7 +44,7 @@ public interface INonstarbookingsService
 
     /**
      * 批量删除非星级酒店预定信息
-     * 
+     *
      * @param ids 需要删除的非星级酒店预定信息主键集合
      * @return 结果
      */
@@ -53,9 +52,11 @@ public interface INonstarbookingsService
 
     /**
      * 删除非星级酒店预定信息信息
-     * 
+     *
      * @param id 非星级酒店预定信息主键
      * @return 结果
      */
     public int deleteNonstarbookingsById(Long id);
+
+    public int confirmNonstarbookingsByIds(Long[] ids);
 }

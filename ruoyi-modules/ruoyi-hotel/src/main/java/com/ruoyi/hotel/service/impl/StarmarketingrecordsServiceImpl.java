@@ -8,10 +8,10 @@ import com.ruoyi.hotel.domain.Starmarketingrecords;
 import com.ruoyi.hotel.service.IStarmarketingrecordsService;
 
 /**
- * 星级酒店营销管理Service业务层处理
+ * 酒店营销记录Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-10
  */
 @Service
 public class StarmarketingrecordsServiceImpl implements IStarmarketingrecordsService 
@@ -20,10 +20,10 @@ public class StarmarketingrecordsServiceImpl implements IStarmarketingrecordsSer
     private StarmarketingrecordsMapper starmarketingrecordsMapper;
 
     /**
-     * 查询星级酒店营销管理
+     * 查询酒店营销记录
      * 
-     * @param id 星级酒店营销管理主键
-     * @return 星级酒店营销管理
+     * @param id 酒店营销记录主键
+     * @return 酒店营销记录
      */
     @Override
     public Starmarketingrecords selectStarmarketingrecordsById(Long id)
@@ -32,10 +32,10 @@ public class StarmarketingrecordsServiceImpl implements IStarmarketingrecordsSer
     }
 
     /**
-     * 查询星级酒店营销管理列表
+     * 查询酒店营销记录列表
      * 
-     * @param starmarketingrecords 星级酒店营销管理
-     * @return 星级酒店营销管理
+     * @param starmarketingrecords 酒店营销记录
+     * @return 酒店营销记录
      */
     @Override
     public List<Starmarketingrecords> selectStarmarketingrecordsList(Starmarketingrecords starmarketingrecords)
@@ -44,9 +44,9 @@ public class StarmarketingrecordsServiceImpl implements IStarmarketingrecordsSer
     }
 
     /**
-     * 新增星级酒店营销管理
+     * 新增酒店营销记录
      * 
-     * @param starmarketingrecords 星级酒店营销管理
+     * @param starmarketingrecords 酒店营销记录
      * @return 结果
      */
     @Override
@@ -56,9 +56,9 @@ public class StarmarketingrecordsServiceImpl implements IStarmarketingrecordsSer
     }
 
     /**
-     * 修改星级酒店营销管理
+     * 修改酒店营销记录
      * 
-     * @param starmarketingrecords 星级酒店营销管理
+     * @param starmarketingrecords 酒店营销记录
      * @return 结果
      */
     @Override
@@ -68,9 +68,9 @@ public class StarmarketingrecordsServiceImpl implements IStarmarketingrecordsSer
     }
 
     /**
-     * 批量删除星级酒店营销管理
+     * 批量删除酒店营销记录
      * 
-     * @param ids 需要删除的星级酒店营销管理主键
+     * @param ids 需要删除的酒店营销记录主键
      * @return 结果
      */
     @Override
@@ -80,9 +80,9 @@ public class StarmarketingrecordsServiceImpl implements IStarmarketingrecordsSer
     }
 
     /**
-     * 删除星级酒店营销管理信息
+     * 删除酒店营销记录信息
      * 
-     * @param id 星级酒店营销管理主键
+     * @param id 酒店营销记录主键
      * @return 结果
      */
     @Override

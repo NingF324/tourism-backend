@@ -23,10 +23,10 @@ import com.ruoyi.common.core.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.web.page.TableDataInfo;
 
 /**
- * 非星级酒店管理Controller
+ * 非星级酒店Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
 @RestController
 @RequestMapping("/nonstarhotels")
@@ -36,7 +36,7 @@ public class NonstarhotelsController extends BaseController
     private INonstarhotelsService nonstarhotelsService;
 
     /**
-     * 查询非星级酒店管理列表
+     * 查询非星级酒店列表
      */
     @RequiresPermissions("hotel:nonstarhotels:list")
     @GetMapping("/list")
@@ -48,20 +48,20 @@ public class NonstarhotelsController extends BaseController
     }
 
     /**
-     * 导出非星级酒店管理列表
+     * 导出非星级酒店列表
      */
     @RequiresPermissions("hotel:nonstarhotels:export")
-    @Log(title = "非星级酒店管理", businessType = BusinessType.EXPORT)
+    @Log(title = "非星级酒店", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Nonstarhotels nonstarhotels)
     {
         List<Nonstarhotels> list = nonstarhotelsService.selectNonstarhotelsList(nonstarhotels);
         ExcelUtil<Nonstarhotels> util = new ExcelUtil<Nonstarhotels>(Nonstarhotels.class);
-        util.exportExcel(response, list, "非星级酒店管理数据");
+        util.exportExcel(response, list, "非星级酒店数据");
     }
 
     /**
-     * 获取非星级酒店管理详细信息
+     * 获取非星级酒店详细信息
      */
     @RequiresPermissions("hotel:nonstarhotels:query")
     @GetMapping(value = "/{id}")
@@ -71,10 +71,10 @@ public class NonstarhotelsController extends BaseController
     }
 
     /**
-     * 新增非星级酒店管理
+     * 新增非星级酒店
      */
     @RequiresPermissions("hotel:nonstarhotels:add")
-    @Log(title = "非星级酒店管理", businessType = BusinessType.INSERT)
+    @Log(title = "非星级酒店", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Nonstarhotels nonstarhotels)
     {
@@ -82,10 +82,10 @@ public class NonstarhotelsController extends BaseController
     }
 
     /**
-     * 修改非星级酒店管理
+     * 修改非星级酒店
      */
     @RequiresPermissions("hotel:nonstarhotels:edit")
-    @Log(title = "非星级酒店管理", businessType = BusinessType.UPDATE)
+    @Log(title = "非星级酒店", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Nonstarhotels nonstarhotels)
     {
@@ -93,10 +93,10 @@ public class NonstarhotelsController extends BaseController
     }
 
     /**
-     * 删除非星级酒店管理
+     * 删除非星级酒店
      */
     @RequiresPermissions("hotel:nonstarhotels:remove")
-    @Log(title = "非星级酒店管理", businessType = BusinessType.DELETE)
+    @Log(title = "非星级酒店", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {

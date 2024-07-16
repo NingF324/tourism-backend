@@ -26,7 +26,7 @@ import com.ruoyi.common.core.web.page.TableDataInfo;
  * 投诉信息Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-15
  */
 @RestController
 @RequestMapping("/complaints")
@@ -101,5 +101,13 @@ public class ComplaintsController extends BaseController
     public AjaxResult remove(@PathVariable Long[] ids)
     {
         return toAjax(complaintsService.deleteComplaintsByIds(ids));
+    }
+
+    @RequiresPermissions("complaint:complaints:confirm")
+    @Log(title = "投诉信息", businessType = BusinessType.DELETE)
+    @DeleteMapping("/confirm/{ids}")
+    public AjaxResult confirm(@PathVariable Long[] ids)
+    {
+        return toAjax(complaintsService.confirmComplaintsByIds(ids));
     }
 }

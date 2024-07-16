@@ -26,7 +26,7 @@ import com.ruoyi.common.core.web.page.TableDataInfo;
  * 应急信息Controller
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-12
  */
 @RestController
 @RequestMapping("/emergencyinfo")
@@ -101,5 +101,12 @@ public class EmergencyinfoController extends BaseController
     public AjaxResult remove(@PathVariable Long[] ids)
     {
         return toAjax(emergencyinfoService.deleteEmergencyinfoByIds(ids));
+    }
+
+    @RequiresPermissions("emergency:emergencyinfo:confirm")
+    @DeleteMapping("/confirm/{ids}")
+    public AjaxResult confirm(@PathVariable Long[] ids)
+    {
+        return toAjax(emergencyinfoService.confirmEmergencyinfoByIds(ids));
     }
 }

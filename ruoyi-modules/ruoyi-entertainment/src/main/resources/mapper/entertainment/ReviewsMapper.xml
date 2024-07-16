@@ -20,6 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectReviewsVo"/>
         <where>  
             <if test="diningEntertainmentId != null "> and dining_entertainment_id = #{diningEntertainmentId}</if>
+            <if test="content != null  and content != ''"> and content like concat('%', #{content}, '%')</if>
             <if test="guestName != null "> and guest_name like concat('%', #{guestName}, '%')</if>
         </where>
     </select>
@@ -29,17 +30,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
 
-    <insert id="insertReviews" parameterType="Reviews">
+    <insert id="insertReviews" parameterType="Reviews" useGeneratedKeys="true" keyProperty="id">
         insert into reviews
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">id,</if>
             <if test="diningEntertainmentId != null">dining_entertainment_id,</if>
             <if test="content != null and content != ''">content,</if>
             <if test="guestName != null">guest_name,</if>
             <if test="rating != null">rating,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">#{id},</if>
             <if test="diningEntertainmentId != null">#{diningEntertainmentId},</if>
             <if test="content != null and content != ''">#{content},</if>
             <if test="guestName != null">#{guestName},</if>

@@ -11,17 +11,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="minPrice"    column="min_price"    />
         <result property="totalQuantity"    column="total_quantity"    />
         <result property="address"    column="address"    />
+        <result property="imageUrl"    column="image_url"    />
+        <result property="ownerId"    column="owner_id"    />
     </resultMap>
 
     <sql id="selectStarhotelsVo">
-        select id, name, star_level, min_price, total_quantity, address from starhotels
+        select id, name, star_level, min_price, total_quantity, address, image_url, owner_id from starhotels
     </sql>
 
     <select id="selectStarhotelsList" parameterType="Starhotels" resultMap="StarhotelsResult">
         <include refid="selectStarhotelsVo"/>
         <where>  
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
-            <if test="address != null  and address != ''"> and address = #{address}</if>
+            <if test="address != null  and address != ''"> and address like concat('%', #{address}, '%')</if>
         </where>
     </select>
     
@@ -30,23 +32,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
 
-    <insert id="insertStarhotels" parameterType="Starhotels">
+    <insert id="insertStarhotels" parameterType="Starhotels" useGeneratedKeys="true" keyProperty="id">
         insert into starhotels
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">id,</if>
             <if test="name != null and name != ''">name,</if>
             <if test="starLevel != null">star_level,</if>
             <if test="minPrice != null">min_price,</if>
             <if test="totalQuantity != null">total_quantity,</if>
             <if test="address != null and address != ''">address,</if>
+            <if test="imageUrl != null and imageUrl != ''">image_url,</if>
+            <if test="ownerId != null">owner_id,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">#{id},</if>
             <if test="name != null and name != ''">#{name},</if>
             <if test="starLevel != null">#{starLevel},</if>
             <if test="minPrice != null">#{minPrice},</if>
             <if test="totalQuantity != null">#{totalQuantity},</if>
             <if test="address != null and address != ''">#{address},</if>
+            <if test="imageUrl != null and imageUrl != ''">#{imageUrl},</if>
+            <if test="ownerId != null">#{ownerId},</if>
          </trim>
     </insert>
 
@@ -58,6 +62,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="minPrice != null">min_price = #{minPrice},</if>
             <if test="totalQuantity != null">total_quantity = #{totalQuantity},</if>
             <if test="address != null and address != ''">address = #{address},</if>
+            <if test="imageUrl != null and imageUrl != ''">image_url = #{imageUrl},</if>
+            <if test="ownerId != null">owner_id = #{ownerId},</if>
         </trim>
         where id = #{id}
     </update>

@@ -1,16 +1,15 @@
 package com.ruoyi.hotel.domain;
 
-import java.math.BigDecimal;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
- * 非星级酒店管理对象 nonstarhotels
+ * 非星级酒店对象 nonstarhotels
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
 public class Nonstarhotels extends BaseEntity
 {
@@ -25,7 +24,7 @@ public class Nonstarhotels extends BaseEntity
 
     /** 最低价 */
     @Excel(name = "最低价")
-    private BigDecimal minPrice;
+    private Long minPrice;
 
     /** 总剩余量 */
     @Excel(name = "总剩余量")
@@ -34,6 +33,14 @@ public class Nonstarhotels extends BaseEntity
     /** 地址 */
     @Excel(name = "地址")
     private String address;
+
+    /** 图片 */
+    @Excel(name = "图片")
+    private String imageUrl;
+
+    /** 所有人id */
+    @Excel(name = "所有人id")
+    private Long ownerId;
 
     public void setId(Long id) 
     {
@@ -53,12 +60,12 @@ public class Nonstarhotels extends BaseEntity
     {
         return name;
     }
-    public void setMinPrice(BigDecimal minPrice) 
+    public void setMinPrice(Long minPrice) 
     {
         this.minPrice = minPrice;
     }
 
-    public BigDecimal getMinPrice() 
+    public Long getMinPrice() 
     {
         return minPrice;
     }
@@ -80,6 +87,24 @@ public class Nonstarhotels extends BaseEntity
     {
         return address;
     }
+    public void setImageUrl(String imageUrl) 
+    {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() 
+    {
+        return imageUrl;
+    }
+    public void setOwnerId(Long ownerId) 
+    {
+        this.ownerId = ownerId;
+    }
+
+    public Long getOwnerId() 
+    {
+        return ownerId;
+    }
 
     @Override
     public String toString() {
@@ -89,6 +114,8 @@ public class Nonstarhotels extends BaseEntity
             .append("minPrice", getMinPrice())
             .append("totalQuantity", getTotalQuantity())
             .append("address", getAddress())
+            .append("imageUrl", getImageUrl())
+            .append("ownerId", getOwnerId())
             .toString();
     }
 }

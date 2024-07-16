@@ -1,22 +1,21 @@
 package com.ruoyi.hotel.domain;
 
-import java.math.BigDecimal;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
- * 非星级房型对象 nonstarroomtypes
+ * 非星级酒店房型对象 nonstarroomtypes
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-14
  */
 public class Nonstarroomtypes extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
-    /** 非星级放行id */
+    /** 房型id */
     private Long id;
 
     /** 酒店id */
@@ -29,15 +28,23 @@ public class Nonstarroomtypes extends BaseEntity
 
     /** 价格 */
     @Excel(name = "价格")
-    private BigDecimal price;
+    private Long price;
 
-    /** 剩余数量 */
-    @Excel(name = "剩余数量")
+    /** 剩余量 */
+    @Excel(name = "剩余量")
     private Long quantity;
 
     /** 销量 */
     @Excel(name = "销量")
     private Long sales;
+
+    /** 图片 */
+    @Excel(name = "图片")
+    private String imageUrl;
+
+    /** 所有人id */
+    @Excel(name = "所有人id")
+    private Long ownerId;
 
     public void setId(Long id) 
     {
@@ -66,12 +73,12 @@ public class Nonstarroomtypes extends BaseEntity
     {
         return name;
     }
-    public void setPrice(BigDecimal price) 
+    public void setPrice(Long price) 
     {
         this.price = price;
     }
 
-    public BigDecimal getPrice() 
+    public Long getPrice() 
     {
         return price;
     }
@@ -93,6 +100,24 @@ public class Nonstarroomtypes extends BaseEntity
     {
         return sales;
     }
+    public void setImageUrl(String imageUrl) 
+    {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() 
+    {
+        return imageUrl;
+    }
+    public void setOwnerId(Long ownerId) 
+    {
+        this.ownerId = ownerId;
+    }
+
+    public Long getOwnerId() 
+    {
+        return ownerId;
+    }
 
     @Override
     public String toString() {
@@ -103,6 +128,8 @@ public class Nonstarroomtypes extends BaseEntity
             .append("price", getPrice())
             .append("quantity", getQuantity())
             .append("sales", getSales())
+            .append("imageUrl", getImageUrl())
+            .append("ownerId", getOwnerId())
             .toString();
     }
 }

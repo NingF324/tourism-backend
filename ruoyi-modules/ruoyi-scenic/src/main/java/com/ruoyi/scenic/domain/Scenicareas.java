@@ -9,7 +9,7 @@ import com.ruoyi.common.core.web.domain.BaseEntity;
  * 景区信息对象 scenicareas
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-10
  */
 public class Scenicareas extends BaseEntity
 {
@@ -22,13 +22,21 @@ public class Scenicareas extends BaseEntity
     @Excel(name = "城市")
     private String city;
 
-    /** 景区名称 */
-    @Excel(name = "景区名称")
+    /** 名称 */
+    @Excel(name = "名称")
     private String name;
 
     /** 地址 */
     @Excel(name = "地址")
     private String address;
+
+    /** 图片 */
+    @Excel(name = "图片")
+    private String picUrl;
+
+    /** 评分 */
+    @Excel(name = "评分")
+    private Long score;
 
     public void setId(Long id) 
     {
@@ -66,6 +74,24 @@ public class Scenicareas extends BaseEntity
     {
         return address;
     }
+    public void setPicUrl(String picUrl) 
+    {
+        this.picUrl = picUrl;
+    }
+
+    public String getPicUrl() 
+    {
+        return picUrl;
+    }
+    public void setScore(Long score) 
+    {
+        this.score = score;
+    }
+
+    public Long getScore() 
+    {
+        return score;
+    }
 
     @Override
     public String toString() {
@@ -74,6 +100,8 @@ public class Scenicareas extends BaseEntity
             .append("city", getCity())
             .append("name", getName())
             .append("address", getAddress())
+            .append("picUrl", getPicUrl())
+            .append("score", getScore())
             .toString();
     }
 }

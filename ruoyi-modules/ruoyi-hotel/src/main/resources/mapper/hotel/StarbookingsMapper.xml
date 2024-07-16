@@ -8,20 +8,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="id"    column="id"    />
         <result property="hotelId"    column="hotel_id"    />
         <result property="roomTypeId"    column="room_type_id"    />
-        <result property="guestName"    column="guest_name"    />
+        <result property="guestId"    column="guest_id"    />
         <result property="contactNumber"    column="contact_number"    />
         <result property="recorded"    column="recorded"    />
+        <result property="checkInTime"    column="check_in_time"    />
+        <result property="checkOutTime"    column="check_out_time"    />
+        <result property="guestName"    column="guest_name"    />
+        <result property="ownerId"    column="owner_id"    />
     </resultMap>
 
     <sql id="selectStarbookingsVo">
-        select id, hotel_id, room_type_id, guest_name, contact_number, recorded from starbookings
+        select id, hotel_id, room_type_id, guest_id, contact_number, recorded, check_in_time, check_out_time, guest_name, owner_id from starbookings
     </sql>
 
     <select id="selectStarbookingsList" parameterType="Starbookings" resultMap="StarbookingsResult">
         <include refid="selectStarbookingsVo"/>
         <where>  
             <if test="hotelId != null "> and hotel_id = #{hotelId}</if>
-            <if test="guestName != null "> and guest_name like concat('%', #{guestName}, '%')</if>
+            <if test="roomTypeId != null "> and room_type_id = #{roomTypeId}</if>
+            <if test="guestId != null "> and guest_id = #{guestId}</if>
+            <if test="recorded != null "> and recorded = #{recorded}</if>
+            <if test="guestName != null  and guestName != ''"> and guest_name like concat('%', #{guestName}, '%')</if>
         </where>
     </select>
     
@@ -30,23 +37,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
 
-    <insert id="insertStarbookings" parameterType="Starbookings">
+    <insert id="insertStarbookings" parameterType="Starbookings" useGeneratedKeys="true" keyProperty="id">
         insert into starbookings
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">id,</if>
             <if test="hotelId != null">hotel_id,</if>
             <if test="roomTypeId != null">room_type_id,</if>
-            <if test="guestName != null">guest_name,</if>
+            <if test="guestId != null">guest_id,</if>
             <if test="contactNumber != null">contact_number,</if>
             <if test="recorded != null">recorded,</if>
+            <if test="checkInTime != null">check_in_time,</if>
+            <if test="checkOutTime != null">check_out_time,</if>
+            <if test="guestName != null">guest_name,</if>
+            <if test="ownerId != null">owner_id,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">#{id},</if>
             <if test="hotelId != null">#{hotelId},</if>
             <if test="roomTypeId != null">#{roomTypeId},</if>
-            <if test="guestName != null">#{guestName},</if>
+            <if test="guestId != null">#{guestId},</if>
             <if test="contactNumber != null">#{contactNumber},</if>
             <if test="recorded != null">#{recorded},</if>
+            <if test="checkInTime != null">#{checkInTime},</if>
+            <if test="checkOutTime != null">#{checkOutTime},</if>
+            <if test="guestName != null">#{guestName},</if>
+            <if test="ownerId != null">#{ownerId},</if>
          </trim>
     </insert>
 
@@ -55,9 +68,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="SET" suffixOverrides=",">
             <if test="hotelId != null">hotel_id = #{hotelId},</if>
             <if test="roomTypeId != null">room_type_id = #{roomTypeId},</if>
-            <if test="guestName != null">guest_name = #{guestName},</if>
+            <if test="guestId != null">guest_id = #{guestId},</if>
             <if test="contactNumber != null">contact_number = #{contactNumber},</if>
             <if test="recorded != null">recorded = #{recorded},</if>
+            <if test="checkInTime != null">check_in_time = #{checkInTime},</if>
+            <if test="checkOutTime != null">check_out_time = #{checkOutTime},</if>
+            <if test="guestName != null">guest_name = #{guestName},</if>
+            <if test="ownerId != null">owner_id = #{ownerId},</if>
         </trim>
         where id = #{id}
     </update>
@@ -67,9 +84,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </delete>
 
     <delete id="deleteStarbookingsByIds" parameterType="String">
-        delete from starbookings where id in 
+        delete from starbookings where id in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
         </foreach>
     </delete>
+
+    <update id="confirmStarbookingsByIds" parameterType="String">
+        update starbookings set recorded = 1 where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
 </mapper>
