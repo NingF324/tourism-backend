@@ -21,12 +21,12 @@ public class OssSysFileServiceImpl implements ISysFileService{
     /**
      * oss公钥
      */
-    public String accessKey;
+    public String accessKey="";
 
     /**
      * oss私钥
      */
-    public String secretKey;
+    public String secretKey="";
 
     /**
      * oss存储桶域名地址
