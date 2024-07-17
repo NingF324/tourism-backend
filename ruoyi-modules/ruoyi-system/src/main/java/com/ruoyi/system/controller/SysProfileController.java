@@ -1,14 +1,12 @@
 package com.ruoyi.system.controller;
 
 import java.util.Arrays;
+import java.util.Objects;
+
+import com.ruoyi.system.domain.vo.PasswordVo;
+import com.ruoyi.system.domain.vo.userVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import com.ruoyi.common.core.domain.R;
 import com.ruoyi.common.core.utils.StringUtils;
@@ -58,6 +56,12 @@ public class SysProfileController extends BaseController
         return ajax;
     }
 
+    @GetMapping("/{userId}")
+    public AjaxResult getprofile(@PathVariable Long userId){
+        SysUser user = userService.selectUserById(userId);
+        AjaxResult ajax = AjaxResult.success(user);
+        return ajax;
+    }
     /**
      * 修改用户
      */
@@ -83,6 +87,25 @@ public class SysProfileController extends BaseController
         {
             // 更新缓存用户信息
             tokenService.setLoginUser(loginUser);
+            return success();
+        }
+        return error("修改个人信息异常，请联系管理员");
+    }
+
+    @PostMapping("/guest")
+    public AjaxResult updateGuestProfile(@RequestBody userVo uservo) {
+        SysUser currentUser = userService.selectUserById(uservo.getUserId());
+        currentUser.setNickName(uservo.getNickName());
+        currentUser.setEmail(uservo.getEmail());
+        currentUser.setPhonenumber(uservo.getPhonenumber());
+
+        if (StringUtils.isNotEmpty(uservo.getPhonenumber()) && !userService.checkPhoneUnique(currentUser)) {
+            return error("修改用户'" + currentUser.getUserName() + "'失败，手机号码已存在");
+        }
+        if (StringUtils.isNotEmpty(uservo.getEmail()) && !userService.checkEmailUnique(currentUser)) {
+            return error("修改用户'" + currentUser.getUserName() + "'失败，邮箱账号已存在");
+        }
+        if (userService.updateUserProfile(currentUser) > 0) {
             return success();
         }
         return error("修改个人信息异常，请联系管理员");
@@ -117,7 +140,31 @@ public class SysProfileController extends BaseController
         }
         return error("修改密码异常，请联系管理员");
     }
-    
+
+    @PostMapping("/updateGuestPwd")
+    public AjaxResult updateGuestPwd(@RequestBody PasswordVo passwordVo)
+    {SysUser user = userService.selectUserById(passwordVo.getUserId());
+        String password = user.getPassword();
+        if (!SecurityUtils.matchesPassword(passwordVo.getOldPassword(), password))
+        {
+            System.out.println(passwordVo.getOldPassword());
+            System.out.println(password);
+            System.out.println(Objects.equals(passwordVo.getOldPassword(), password));
+            return error("修改密码失败，旧密码错误");
+        }
+        if (SecurityUtils.matchesPassword(passwordVo.getNewPassword(), password))
+        {
+            return error("新密码不能与旧密码相同");
+        }
+        String newPassword = SecurityUtils.encryptPassword(passwordVo.getNewPassword());
+        if (userService.resetUserPwd(user.getUserName(), newPassword) > 0)
+        {
+            // 更新缓存用户密码
+            return success();
+        }
+        return error("修改密码异常，请联系管理员");
+    }
+
     /**
      * 头像上传
      */

@@ -59,4 +59,8 @@ public class UserInfoServiceImpl implements IUserInfoService {
         sysUser.setPassword(password);
         sysUserInfoMapper.insertUser(sysUser);
     }
+
+    public int updateUser(SysUser user){
+        return 0;
+    }
 }

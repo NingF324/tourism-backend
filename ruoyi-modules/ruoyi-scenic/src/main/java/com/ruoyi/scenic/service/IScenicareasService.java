@@ -7,7 +7,7 @@ import com.ruoyi.scenic.domain.Scenicareas;
  * 景区信息Service接口
  * 
  * @author ningf
- * @date 2024-07-10
+ * @date 2024-07-17
  */
 public interface IScenicareasService 
 {
