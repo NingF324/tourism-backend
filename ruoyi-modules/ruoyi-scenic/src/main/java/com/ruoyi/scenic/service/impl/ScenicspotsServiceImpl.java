@@ -8,10 +8,10 @@ import com.ruoyi.scenic.domain.Scenicspots;
 import com.ruoyi.scenic.service.IScenicspotsService;
 
 /**
- * 景点信息Service业务层处理
+ * 景点信息管理Service业务层处理
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-17
  */
 @Service
 public class ScenicspotsServiceImpl implements IScenicspotsService 
@@ -20,10 +20,10 @@ public class ScenicspotsServiceImpl implements IScenicspotsService
     private ScenicspotsMapper scenicspotsMapper;
 
     /**
-     * 查询景点信息
+     * 查询景点信息管理
      * 
-     * @param id 景点信息主键
-     * @return 景点信息
+     * @param id 景点信息管理主键
+     * @return 景点信息管理
      */
     @Override
     public Scenicspots selectScenicspotsById(Long id)
@@ -32,10 +32,10 @@ public class ScenicspotsServiceImpl implements IScenicspotsService
     }
 
     /**
-     * 查询景点信息列表
+     * 查询景点信息管理列表
      * 
-     * @param scenicspots 景点信息
-     * @return 景点信息
+     * @param scenicspots 景点信息管理
+     * @return 景点信息管理
      */
     @Override
     public List<Scenicspots> selectScenicspotsList(Scenicspots scenicspots)
@@ -44,9 +44,9 @@ public class ScenicspotsServiceImpl implements IScenicspotsService
     }
 
     /**
-     * 新增景点信息
+     * 新增景点信息管理
      * 
-     * @param scenicspots 景点信息
+     * @param scenicspots 景点信息管理
      * @return 结果
      */
     @Override
@@ -56,9 +56,9 @@ public class ScenicspotsServiceImpl implements IScenicspotsService
     }
 
     /**
-     * 修改景点信息
+     * 修改景点信息管理
      * 
-     * @param scenicspots 景点信息
+     * @param scenicspots 景点信息管理
      * @return 结果
      */
     @Override
@@ -68,9 +68,9 @@ public class ScenicspotsServiceImpl implements IScenicspotsService
     }
 
     /**
-     * 批量删除景点信息
+     * 批量删除景点信息管理
      * 
-     * @param ids 需要删除的景点信息主键
+     * @param ids 需要删除的景点信息管理主键
      * @return 结果
      */
     @Override
@@ -80,9 +80,9 @@ public class ScenicspotsServiceImpl implements IScenicspotsService
     }
 
     /**
-     * 删除景点信息信息
+     * 删除景点信息管理信息
      * 
-     * @param id 景点信息主键
+     * @param id 景点信息管理主键
      * @return 结果
      */
     @Override

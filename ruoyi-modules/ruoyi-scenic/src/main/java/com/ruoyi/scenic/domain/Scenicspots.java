@@ -6,10 +6,10 @@ import com.ruoyi.common.core.annotation.Excel;
 import com.ruoyi.common.core.web.domain.BaseEntity;
 
 /**
- * 景点信息对象 scenicspots
+ * 景点信息管理对象 scenicspots
  * 
  * @author ningf
- * @date 2024-07-06
+ * @date 2024-07-17
  */
 public class Scenicspots extends BaseEntity
 {
@@ -29,6 +29,10 @@ public class Scenicspots extends BaseEntity
     /** 景点名称 */
     @Excel(name = "景点名称")
     private String name;
+
+    /** 图片 */
+    @Excel(name = "图片")
+    private String picUrl;
 
     public void setId(Long id) 
     {
@@ -66,6 +70,15 @@ public class Scenicspots extends BaseEntity
     {
         return name;
     }
+    public void setPicUrl(String picUrl) 
+    {
+        this.picUrl = picUrl;
+    }
+
+    public String getPicUrl() 
+    {
+        return picUrl;
+    }
 
     @Override
     public String toString() {
@@ -74,6 +87,7 @@ public class Scenicspots extends BaseEntity
             .append("scenicAreaId", getScenicAreaId())
             .append("address", getAddress())
             .append("name", getName())
+            .append("picUrl", getPicUrl())
             .toString();
     }
 }
