@@ -9,6 +9,8 @@ public class SysUserInfo extends BaseEntity {
     private String user_name;
     /** 头像 */
     private String avatar;
+    /** 密码 */
+    private String password;
 
     public Long getUser_id() {
         return user_id;
@@ -32,5 +34,13 @@ public class SysUserInfo extends BaseEntity {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

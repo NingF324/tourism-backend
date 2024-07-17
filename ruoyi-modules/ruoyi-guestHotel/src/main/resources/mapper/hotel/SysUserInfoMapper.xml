@@ -11,7 +11,7 @@
     </resultMap>
 
     <sql id="selectUserInfoVo">
-        select user_id, user_name, avatar from sys_user
+        select user_id, user_name,password, avatar from sys_user
     </sql>
 
     <select id="selectUserInfoById" parameterType="Long" resultMap="SysUserInfoResult">
@@ -19,5 +19,19 @@
         where user_id = #{id}
     </select>
 
+    <select id="selectUserInfoByName" parameterType="String" resultMap="SysUserInfoResult">
+        <include refid="selectUserInfoVo"/>
+        where user_name = #{username}
+    </select>
+
+    <insert id="insertUser" parameterType="SysUserInfo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO  sys_user(
+            user_name,
+            password
+        ) VALUES (
+                     #{user_name},
+                     #{password}
+                 )
+    </insert>
 
 </mapper>

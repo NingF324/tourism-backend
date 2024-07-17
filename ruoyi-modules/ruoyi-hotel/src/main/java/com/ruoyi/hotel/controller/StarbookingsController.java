@@ -1,8 +1,12 @@
 package com.ruoyi.hotel.controller;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.hotel.domain.Nonstarbookings;
+import com.ruoyi.hotel.domain.VO.bookingVO;
+import com.ruoyi.hotel.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +20,6 @@ import com.ruoyi.common.log.annotation.Log;
 import com.ruoyi.common.log.enums.BusinessType;
 import com.ruoyi.common.security.annotation.RequiresPermissions;
 import com.ruoyi.hotel.domain.Starbookings;
-import com.ruoyi.hotel.service.IStarbookingsService;
 import com.ruoyi.common.core.web.controller.BaseController;
 import com.ruoyi.common.core.web.domain.AjaxResult;
 import com.ruoyi.common.core.utils.poi.ExcelUtil;
@@ -34,6 +37,56 @@ public class StarbookingsController extends BaseController
 {
     @Autowired
     private IStarbookingsService starbookingsService;
+
+    @Autowired
+    private INonstarbookingsService nonstarbookingsService;
+
+    @Autowired
+    private IStarhotelsService starhotelsService;
+
+    @Autowired
+    private INonstarhotelsService nonstarhotelsService;
+
+    @Autowired
+    private IStarroomtypesService starroomtypesService;
+
+    @Autowired
+    private INonstarroomtypesService nonstarroomtypesService;
+
+    @GetMapping("/listall")
+    public TableDataInfo listall(Starbookings starbookings)
+    {
+        Nonstarbookings nonstarbookings =new Nonstarbookings();
+        startPage();
+        List<bookingVO> result = new ArrayList<>();
+        List<Starbookings> list = starbookingsService.selectStarbookingsList(starbookings);
+        List<Nonstarbookings> nlist = nonstarbookingsService.selectNonstarbookingsList(nonstarbookings);
+        list.forEach(item ->{
+            bookingVO bookingvo = new bookingVO();
+            bookingvo.setHotelName(starhotelsService.selectStarhotelsById(item.getHotelId()).getName());
+            bookingvo.setRoomTypeName(starroomtypesService.selectStarroomtypesById(item.getRoomTypeId()).getName());
+            bookingvo.setGuestId(item.getGuestId());
+            bookingvo.setContactNumber(item.getContactNumber());
+            bookingvo.setRecorded(item.getRecorded());
+            bookingvo.setCheckInTime(item.getCheckInTime());
+            bookingvo.setCheckOutTime(item.getCheckOutTime());
+            bookingvo.setGuestName(item.getGuestName());
+            result.add(bookingvo);
+        });
+        nlist.forEach(item ->{
+            bookingVO bookingvo = new bookingVO();
+            bookingvo.setHotelName(nonstarhotelsService.selectNonstarhotelsById(item.getHotelId()).getName());
+            bookingvo.setRoomTypeName(nonstarroomtypesService.selectNonstarroomtypesById(item.getRoomTypeId()).getName());
+            bookingvo.setGuestId(item.getGuestId());
+            bookingvo.setContactNumber(item.getContactNumber());
+            bookingvo.setRecorded(item.getRecorded());
+            bookingvo.setCheckInTime(item.getCheckInTime());
+            bookingvo.setCheckOutTime(item.getCheckOutTime());
+            bookingvo.setGuestName(item.getGuestName());
+            result.add(bookingvo);
+        });
+        return getDataTable(result);
+    }
 
     /**
      * 查询星级酒店预定信息列表

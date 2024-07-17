@@ -13,4 +13,18 @@ public interface SysUserInfoMapper {
      * @return 游客信息
      */
     public SysUserInfo selectUserInfoById(Long id);
+    /**
+     * 查询游客信息
+     *
+     * @param name 游客name
+     * @return 游客信息
+     */
+    public SysUserInfo selectUserInfoByName(String name);
+    /**
+     * 查询游客信息
+     *
+     * @return 游客信息
+     */
+    public void insertUser(SysUserInfo sysUserInfo);
+
 }
