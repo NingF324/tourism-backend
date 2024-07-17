@@ -23,7 +23,7 @@ import com.ruoyi.common.core.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.web.page.TableDataInfo;
 
 /**
- * 景点信息管理Controller
+ * 景点信息Controller
  * 
  * @author ningf
  * @date 2024-07-17
@@ -36,7 +36,7 @@ public class ScenicspotsController extends BaseController
     private IScenicspotsService scenicspotsService;
 
     /**
-     * 查询景点信息管理列表
+     * 查询景点信息列表
      */
     @RequiresPermissions("scenic:scenicspots:list")
     @GetMapping("/list")
@@ -48,20 +48,20 @@ public class ScenicspotsController extends BaseController
     }
 
     /**
-     * 导出景点信息管理列表
+     * 导出景点信息列表
      */
     @RequiresPermissions("scenic:scenicspots:export")
-    @Log(title = "景点信息管理", businessType = BusinessType.EXPORT)
+    @Log(title = "景点信息", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, Scenicspots scenicspots)
     {
         List<Scenicspots> list = scenicspotsService.selectScenicspotsList(scenicspots);
         ExcelUtil<Scenicspots> util = new ExcelUtil<Scenicspots>(Scenicspots.class);
-        util.exportExcel(response, list, "景点信息管理数据");
+        util.exportExcel(response, list, "景点信息数据");
     }
 
     /**
-     * 获取景点信息管理详细信息
+     * 获取景点信息详细信息
      */
     @RequiresPermissions("scenic:scenicspots:query")
     @GetMapping(value = "/{id}")
@@ -71,10 +71,10 @@ public class ScenicspotsController extends BaseController
     }
 
     /**
-     * 新增景点信息管理
+     * 新增景点信息
      */
     @RequiresPermissions("scenic:scenicspots:add")
-    @Log(title = "景点信息管理", businessType = BusinessType.INSERT)
+    @Log(title = "景点信息", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Scenicspots scenicspots)
     {
@@ -82,10 +82,10 @@ public class ScenicspotsController extends BaseController
     }
 
     /**
-     * 修改景点信息管理
+     * 修改景点信息
      */
     @RequiresPermissions("scenic:scenicspots:edit")
-    @Log(title = "景点信息管理", businessType = BusinessType.UPDATE)
+    @Log(title = "景点信息", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Scenicspots scenicspots)
     {
@@ -93,10 +93,10 @@ public class ScenicspotsController extends BaseController
     }
 
     /**
-     * 删除景点信息管理
+     * 删除景点信息
      */
     @RequiresPermissions("scenic:scenicspots:remove")
-    @Log(title = "景点信息管理", businessType = BusinessType.DELETE)
+    @Log(title = "景点信息", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable Long[] ids)
     {

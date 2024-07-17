@@ -26,7 +26,7 @@ import com.ruoyi.common.core.web.page.TableDataInfo;
  * 景区信息Controller
  * 
  * @author ningf
- * @date 2024-07-10
+ * @date 2024-07-17
  */
 @RestController
 @RequestMapping("/scenicareas")

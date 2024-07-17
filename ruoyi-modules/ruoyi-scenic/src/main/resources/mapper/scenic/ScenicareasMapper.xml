@@ -11,10 +11,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="address"    column="address"    />
         <result property="picUrl"    column="pic_url"    />
         <result property="score"    column="score"    />
+        <result property="desc"    column="desc"    />
     </resultMap>
 
     <sql id="selectScenicareasVo">
-        select id, city, name, address, pic_url, score from scenicareas
+        select id, city, name, address, pic_url, score, desc from scenicareas
     </sql>
 
     <select id="selectScenicareasList" parameterType="Scenicareas" resultMap="ScenicareasResult">
@@ -39,6 +40,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="address != null and address != ''">address,</if>
             <if test="picUrl != null">pic_url,</if>
             <if test="score != null">score,</if>
+            <if test="desc != null">desc,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="city != null and city != ''">#{city},</if>
@@ -46,6 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="address != null and address != ''">#{address},</if>
             <if test="picUrl != null">#{picUrl},</if>
             <if test="score != null">#{score},</if>
+            <if test="desc != null">#{desc},</if>
          </trim>
     </insert>
 
@@ -57,6 +60,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="address != null and address != ''">address = #{address},</if>
             <if test="picUrl != null">pic_url = #{picUrl},</if>
             <if test="score != null">score = #{score},</if>
+            <if test="desc != null">desc = #{desc},</if>
         </trim>
         where id = #{id}
     </update>

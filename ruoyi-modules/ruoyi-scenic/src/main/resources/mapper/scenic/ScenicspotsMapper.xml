@@ -10,15 +10,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="address"    column="address"    />
         <result property="name"    column="name"    />
         <result property="picUrl"    column="pic_url"    />
+        <result property="desc"    column="desc"    />
     </resultMap>
 
     <sql id="selectScenicspotsVo">
-        select id, scenic_area_id, address, name, pic_url from scenicspots
+        select id, scenic_area_id, address, name, pic_url, desc from scenicspots
     </sql>
 
     <select id="selectScenicspotsList" parameterType="Scenicspots" resultMap="ScenicspotsResult">
         <include refid="selectScenicspotsVo"/>
         <where>  
+            <if test="scenicAreaId != null "> and scenic_area_id = #{scenicAreaId}</if>
             <if test="address != null  and address != ''"> and address like concat('%', #{address}, '%')</if>
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
         </where>
@@ -36,12 +38,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="address != null and address != ''">address,</if>
             <if test="name != null">name,</if>
             <if test="picUrl != null">pic_url,</if>
+            <if test="desc != null">desc,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="scenicAreaId != null">#{scenicAreaId},</if>
             <if test="address != null and address != ''">#{address},</if>
             <if test="name != null">#{name},</if>
             <if test="picUrl != null">#{picUrl},</if>
+            <if test="desc != null">#{desc},</if>
          </trim>
     </insert>
 
@@ -52,6 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="address != null and address != ''">address = #{address},</if>
             <if test="name != null">name = #{name},</if>
             <if test="picUrl != null">pic_url = #{picUrl},</if>
+            <if test="desc != null">desc = #{desc},</if>
         </trim>
         where id = #{id}
     </update>
