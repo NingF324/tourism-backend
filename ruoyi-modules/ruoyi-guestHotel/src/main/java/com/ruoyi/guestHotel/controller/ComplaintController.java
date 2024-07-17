@@ -21,7 +21,7 @@ import static com.ruoyi.common.core.utils.PageUtils.startPage;
 import static com.ruoyi.common.core.web.domain.AjaxResult.success;
 
 @RestController
-@RequestMapping("/complaint")
+@RequestMapping("/guest/complaint")
 
 public class ComplaintController {
     @Autowired

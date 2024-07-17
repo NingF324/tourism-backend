@@ -22,8 +22,8 @@ public class Scenicareas extends BaseEntity
     @Excel(name = "城市")
     private String city;
 
-    /** 名称 */
-    @Excel(name = "名称")
+    /** 景区名称 */
+    @Excel(name = "景区名称")
     private String name;
 
     /** 地址 */
@@ -40,7 +40,7 @@ public class Scenicareas extends BaseEntity
 
     /** 描述 */
     @Excel(name = "描述")
-    private String desc;
+    private String description;
 
     public void setId(Long id) 
     {
@@ -96,14 +96,14 @@ public class Scenicareas extends BaseEntity
     {
         return score;
     }
-    public void setDesc(String desc) 
+    public void setDescription(String description) 
     {
-        this.desc = desc;
+        this.description = description;
     }
 
-    public String getDesc() 
+    public String getDescription() 
     {
-        return desc;
+        return description;
     }
 
     @Override
@@ -115,7 +115,7 @@ public class Scenicareas extends BaseEntity
             .append("address", getAddress())
             .append("picUrl", getPicUrl())
             .append("score", getScore())
-            .append("desc", getDesc())
+            .append("description", getDescription())
             .toString();
     }
 }

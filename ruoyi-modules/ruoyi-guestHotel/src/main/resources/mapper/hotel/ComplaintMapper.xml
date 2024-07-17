@@ -10,11 +10,10 @@
         <result property="submitTime"    column="submit_time"    />
         <result property="status"    column="status"    />
         <result property="userId"    column="usestatusr_id"    />
-        <result property="result"    column="result"    />
     </resultMap>
 
     <sql id="selectComplaintsVo">
-        select id, content, submit_time, status, user_id, result from complaints
+        select id, content, submit_time, status, user_id from complaints
     </sql>
 
 

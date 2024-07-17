@@ -36,7 +36,7 @@ public class Scenicspots extends BaseEntity
 
     /** 描述 */
     @Excel(name = "描述")
-    private String desc;
+    private String description;
 
     public void setId(Long id) 
     {
@@ -83,14 +83,14 @@ public class Scenicspots extends BaseEntity
     {
         return picUrl;
     }
-    public void setDesc(String desc) 
+    public void setDescription(String description) 
     {
-        this.desc = desc;
+        this.description = description;
     }
 
-    public String getDesc() 
+    public String getDescription() 
     {
-        return desc;
+        return description;
     }
 
     @Override
@@ -101,7 +101,7 @@ public class Scenicspots extends BaseEntity
             .append("address", getAddress())
             .append("name", getName())
             .append("picUrl", getPicUrl())
-            .append("desc", getDesc())
+            .append("description", getDescription())
             .toString();
     }
 }

@@ -10,11 +10,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="address"    column="address"    />
         <result property="name"    column="name"    />
         <result property="picUrl"    column="pic_url"    />
-        <result property="desc"    column="desc"    />
+        <result property="description"    column="description"    />
     </resultMap>
 
     <sql id="selectScenicspotsVo">
-        select id, scenic_area_id, address, name, pic_url, desc from scenicspots
+        select id, scenic_area_id, address, name, pic_url, description from scenicspots
     </sql>
 
     <select id="selectScenicspotsList" parameterType="Scenicspots" resultMap="ScenicspotsResult">
@@ -38,14 +38,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="address != null and address != ''">address,</if>
             <if test="name != null">name,</if>
             <if test="picUrl != null">pic_url,</if>
-            <if test="desc != null">desc,</if>
+            <if test="description != null">description,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="scenicAreaId != null">#{scenicAreaId},</if>
             <if test="address != null and address != ''">#{address},</if>
             <if test="name != null">#{name},</if>
             <if test="picUrl != null">#{picUrl},</if>
-            <if test="desc != null">#{desc},</if>
+            <if test="description != null">#{description},</if>
          </trim>
     </insert>
 
@@ -56,7 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="address != null and address != ''">address = #{address},</if>
             <if test="name != null">name = #{name},</if>
             <if test="picUrl != null">pic_url = #{picUrl},</if>
-            <if test="desc != null">desc = #{desc},</if>
+            <if test="description != null">description = #{description},</if>
         </trim>
         where id = #{id}
     </update>

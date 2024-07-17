@@ -81,6 +81,12 @@ public class ComplaintsController extends BaseController
         return toAjax(complaintsService.insertComplaints(complaints));
     }
 
+    @PostMapping("/complaintsGuest")
+    public AjaxResult guestAdd(@RequestBody Complaints complaints)
+    {
+        return toAjax(complaintsService.insertComplaints(complaints));
+    }
+
     /**
      * 修改投诉信息
      */
@@ -91,6 +97,8 @@ public class ComplaintsController extends BaseController
     {
         return toAjax(complaintsService.updateComplaints(complaints));
     }
+
+
 
     /**
      * 删除投诉信息
